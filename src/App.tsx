@@ -4,21 +4,26 @@ import './App.css';
 import Nav from './components/Nav';
 import SideNavBar from "./components/SideBar";
 import Dashboard from "./components/Dashboard";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import User from './modules/users/Users';
 
 function App() {
     return (
         <div className="App">
-            <Nav/>
-            <main>
-                <div className="flex flex-col md:flex-row">
-                    <SideNavBar></SideNavBar>
-                    <section>
-                        <div id="main" className="main-content flex-1 bg-white mt-12 md:mt-2 pb-24 p-10 md:pb-5">
-                            <Dashboard></Dashboard>
-                        </div>
-                    </section>
-                </div>
-            </main>
+            <BrowserRouter>
+                <Nav/>
+                <main className="flex-row flex-wrap flex-grow">
+                    <div className="flex flex-col md:flex-row">
+                        <SideNavBar></SideNavBar>
+                        <section>
+                            <Routes>
+                                <Route path={"/"} element={<Dashboard/>} />
+                                <Route path="users" element={<User/>} />
+                            </Routes>
+                        </section>
+                    </div>
+                </main>
+            </BrowserRouter>
         </div>
     );
 }

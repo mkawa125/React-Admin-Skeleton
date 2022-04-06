@@ -11,64 +11,116 @@ interface UserState {
 class User extends React.Component<UserProps, UserState> {
     render() { 
         return ( 
-            <div className="flex flex-col">
-                <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                    <div className="overflow-hidden">
-                        <table className="min-w-full">
-                        <thead className="bg-white border-b">
-                            <tr>
-                            <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                #
-                            </th>
-                            <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                First
-                            </th>
-                            <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                Last
-                            </th>
-                            <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                Handle
-                            </th>
+            <div className="table w-full p-2">
+                    <table className="w-full border">
+                        <thead>
+                            <tr className="bg-gray-50 border-b">
+                                
+                                <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                                    <div className="flex items-center justify-center">
+                                        ID
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+                                        </svg>
+                                    </div>
+                                </th>
+                                <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                                    <div className="flex items-center justify-center">
+                                        Name
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+                                        </svg>
+                                    </div>
+                                </th>
+                                <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                                    <div className="flex items-center justify-center">
+                                        Email
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+                                        </svg>
+                                    </div>
+                                </th>
+                                <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                                    <div className="flex items-center justify-center">
+                                        Address
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+                                        </svg>
+                                    </div>
+                                </th>
+                                <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                                    <div className="flex items-center justify-center">
+                                        Action
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+                                        </svg>
+                                    </div>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className="bg-gray-100 border-b">
-                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
-                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                Mark
-                            </td>
-                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                Otto
-                            </td>
-                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                @mdo
-                            </td>
+                            <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
+                                <td className="p-2 border-r">
+                                </td>
+                                <td className="p-2 border-r">1</td>
+                                <td className="p-2 border-r">John Doe</td>
+                                <td className="p-2 border-r">john@gmail.com</td>
+                                <td className="p-2 border-r">Sydney, Australia</td>
+                                <td>
+                                    <a href="#" className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
+                                    <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
+                                </td>
                             </tr>
-                            <tr className="bg-white border-b">
-                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
-                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                Jacob
-                            </td>
-                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                Thornton
-                            </td>
-                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                @fat
-                            </td>
+                            <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
+                                <td className="p-2 border-r">
+                                </td>
+                                <td className="p-2 border-r">2</td>
+                                <td className="p-2 border-r">Adam Smith</td>
+                                <td className="p-2 border-r">adam@gmail.com</td>
+                                <td className="p-2 border-r">Sydney, Australia</td>
+                                <td>
+                                    <a href="#" className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
+                                    <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
+                                </td>
                             </tr>
-                            <tr className="bg-gray-100 border-b">
-                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">3</td>
-                            
-                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                @twitter
-                            </td>
+                            <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
+                                <td className="p-2 border-r">
+                                </td>
+                                <td className="p-2 border-r">3</td>
+                                <td className="p-2 border-r">Jean Doe</td>
+                                <td className="p-2 border-r">jean@gmail.com</td>
+                                <td className="p-2 border-r">Sydney, Australia</td>
+                                <td>
+                                    <a href="#" className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
+                                    <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
+                                </td>
+                            </tr>
+                            <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
+                                <td className="p-2 border-r">
+                                </td>
+                                <td className="p-2 border-r">3</td>
+                                <td className="p-2 border-r">Jean Doe</td>
+                                <td className="p-2 border-r">jean@gmail.com</td>
+                                <td className="p-2 border-r">Sydney, Australia</td>
+                                <td>
+                                    <a href="#" className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
+                                    <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
+                                </td>
+                            </tr>
+                            <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
+                                <td className="p-2 border-r">
+                                </td>
+                                <td className="p-2 border-r">3</td>
+                                <td className="p-2 border-r">Jean Doe</td>
+                                <td className="p-2 border-r">jean@gmail.com</td>
+                                <td className="p-2 border-r">Sydney, Australia</td>
+                                <td>
+                                    <a href="#" className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
+                                    <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
+                                </td>
                             </tr>
                         </tbody>
-                        </table>
-                    </div>
-                    </div>
-                </div>
+                    </table>
                 </div>
          );
     }
