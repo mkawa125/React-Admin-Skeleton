@@ -1,14 +1,6 @@
 import React, { Component } from "react";
 
-interface UserProps {
-    
-}
- 
-interface UserState {
-    
-}
- 
-class User extends React.Component<UserProps, UserState> {
+class User extends Component {
     render() { 
         return ( 
             <div className="table w-full p-2">
