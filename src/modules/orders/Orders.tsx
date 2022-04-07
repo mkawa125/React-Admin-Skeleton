@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class User extends Component {
+class Order extends Component {
     render() { 
         return ( 
             <div className="table w-full p-2">
@@ -118,4 +118,4 @@ class User extends Component {
     }
 }
  
-export default User;
+export default Order;

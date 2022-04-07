@@ -6,6 +6,7 @@ import SideNavBar from "./components/SideBar";
 import Dashboard from "./components/Dashboard";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import User from './modules/users/Users';
+import Order from './modules/orders/Orders';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                             <Routes>
                                 <Route path={"/"} element={<Dashboard/>} />
                                 <Route path="users" element={<User/>} />
+                                <Route path="orders" element={<Order/>} />
                             </Routes>
                         </section>
                     </div>
