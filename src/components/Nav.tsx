@@ -24,13 +24,9 @@ class Nav extends Component {
                                     <a className="inline-block py-2 px-4 text-white no-underline" href="#">Home</a>
                                 </li>
                                 <li className="flex-1 md:flex-none md:mr-3">
-                                    <a className="inline-block text-gray-400 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">Users</a>
-                                </li>
-                                <li className="flex-1 md:flex-none md:mr-3">
-                                    <a className="inline-block text-gray-400 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">Products</a>
-                                </li>
-                                <li className="flex-1 md:flex-none md:mr-3">
-                                    <a className="inline-block text-gray-400 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">Orders</a>
+                                    <a className="inline-block text-gray-400 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">
+                                        Profile
+                                    </a>
                                 </li>
                                 <li className="flex-1 md:flex-none md:mr-3">
                                     
