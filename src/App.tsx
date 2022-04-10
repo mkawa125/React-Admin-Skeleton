@@ -13,8 +13,8 @@ function App() {
         <div className="App">
             <BrowserRouter>
                 <Nav/>
-                <main className="flex-row flex-wrap flex-grow">
-                    <div className="flex flex-col md:flex-row">
+                <main className="">
+                    <div className="flex">
                         <SideNavBar></SideNavBar>
                         <section>
                             <Routes>
