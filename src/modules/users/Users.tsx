@@ -63,54 +63,6 @@ class User extends Component {
                                 <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
                             </td>
                         </tr>
-                        <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
-                            <td className="p-2 border-r">
-                            </td>
-                            <td className="p-2 border-r">2</td>
-                            <td className="p-2 border-r">Adam Smith</td>
-                            <td className="p-2 border-r">adam@gmail.com</td>
-                            <td className="p-2 border-r">Sydney, Australia</td>
-                            <td>
-                                <a href="#" className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
-                                <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
-                            </td>
-                        </tr>
-                        <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
-                            <td className="p-2 border-r">
-                            </td>
-                            <td className="p-2 border-r">3</td>
-                            <td className="p-2 border-r">Jean Doe</td>
-                            <td className="p-2 border-r">jean@gmail.com</td>
-                            <td className="p-2 border-r">Sydney, Australia</td>
-                            <td>
-                                <a href="#" className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
-                                <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
-                            </td>
-                        </tr>
-                        <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
-                            <td className="p-2 border-r">
-                            </td>
-                            <td className="p-2 border-r">3</td>
-                            <td className="p-2 border-r">Jean Doe</td>
-                            <td className="p-2 border-r">jean@gmail.com</td>
-                            <td className="p-2 border-r">Sydney, Australia</td>
-                            <td>
-                                <a href="#" className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
-                                <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
-                            </td>
-                        </tr>
-                        <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
-                            <td className="p-2 border-r">
-                            </td>
-                            <td className="p-2 border-r">3</td>
-                            <td className="p-2 border-r">Jean Doe</td>
-                            <td className="p-2 border-r">jean@gmail.com</td>
-                            <td className="p-2 border-r">Sydney, Australia</td>
-                            <td>
-                                <a href="#" className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
-                                <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
