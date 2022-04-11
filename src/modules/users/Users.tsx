@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class User extends Component {
     render() { 
         return ( 
-            <div className="table w-full p-2 mt-16">
+            <div className="table w-full p-2 mt-8">
                 <table className="w-full border">
                     <thead>
                         <tr className="bg-gray-50 border-b">
@@ -52,7 +52,8 @@ class User extends Component {
                     </thead>
                     <tbody>
                         <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
-                            
+                            <td className="p-2 border-r">
+                            </td>
                             <td className="p-2 border-r">1</td>
                             <td className="p-2 border-r">John Doe</td>
                             <td className="p-2 border-r">john@gmail.com</td>

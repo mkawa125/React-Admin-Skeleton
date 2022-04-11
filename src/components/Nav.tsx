@@ -25,7 +25,7 @@ class Nav extends Component {
                                 </li>
                                 <li className="flex-1 md:flex-none md:mr-3">
                                     <a className="inline-block text-gray-400 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">
-                                        User Profile
+                                        Profile
                                     </a>
                                 </li>
                                 <li className="flex-1 md:flex-none md:mr-3">
