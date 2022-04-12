@@ -3,8 +3,8 @@ import React, { PureComponent } from 'react';
 class Dashboard extends React.Component {
     render() { 
         return ( 
-            <div id="main" className="main-content flex-1 bg-white mt-12 md:mt-2 pb-24 p-10 md:pb-5">
-                <div className="flex flex-row flex-wrap flex-grow mt-8">
+            <div id="main" className="main-content flex-1 bg-white p-10 shadow-md shadow-gray-300 md:pb-5">
+                <div className="flex flex-row flex-wrap flex-grow">
 
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eaque quos ab reiciendis, perspiciatis inventore minima maxime vero porro at illum in quod dolore aliquam ea est, sint, enim voluptates.

@@ -17,7 +17,7 @@ function App() {
         <SideNavBar/>
             <Nav/>
 
-            <section>
+            <section className='pt-24 bg-gray-100 w-full p-20'>
                 <Routes>
                     <Route path={"/"} element={<Dashboard/>} />
                     <Route path="users" element={<User/>} />
