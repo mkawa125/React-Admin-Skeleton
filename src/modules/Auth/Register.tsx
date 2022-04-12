@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Register extends Component{
 
@@ -37,19 +38,6 @@ class Register extends Component{
                             />
                         </label>
 
-                        <div className="flex mt-6 text-sm">
-                            <label className="flex items-center dark:text-gray-400">
-                            <input
-                                type="checkbox"
-                                className="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                            />
-                        <span className="ml-2">
-                            I agree to the
-                            <span className="underline">privacy policy</span>
-                        </span>
-                        </label>
-                        </div>
-
                         <a className="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
                             href="./login.html">
                             Create account
@@ -86,9 +74,9 @@ class Register extends Component{
                         </button>
 
                         <p className="mt-4">
-                            <a className="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="./login.html">
+                            <Link to={'/login'} className="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline">
                                 Already have an account? Login
-                            </a>
+                            </Link>
                         </p>
                     </div>
                 </div>

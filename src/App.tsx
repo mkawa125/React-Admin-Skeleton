@@ -9,6 +9,7 @@ import User from './modules/users/Users';
 import Order from './modules/orders/Orders';
 import Register from './modules/Auth/Register';
 import Product from './modules/products/Products';
+import Login from './modules/Auth/Login';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Route path="users" element={<User/>} />
                     <Route path="orders" element={<Order/>} />
                     <Route path="register" element={<Register/>} />
+                    <Route path="login" element={<Login/>} />
                     <Route path="products" element={<Product/>} />
                 </Routes>
             </BrowserRouter>
