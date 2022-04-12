@@ -11,21 +11,17 @@ import Order from './modules/orders/Orders';
 function App() {
     return (
         <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
-
-        <BrowserRouter>
-
-        <SideNavBar/>
-            <Nav/>
-
-            <section className='pt-24 bg-gray-100 w-full p-20'>
-                <Routes>
-                    <Route path={"/"} element={<Dashboard/>} />
-                    <Route path="users" element={<User/>} />
-                    <Route path="orders" element={<Order/>} />
-                </Routes>
-            </section>
-
-        </BrowserRouter>
+            <BrowserRouter>
+                <SideNavBar/>
+                <Nav/>
+                <section className='pt-24 bg-gray-100 w-full p-20'>
+                    <Routes>
+                        <Route path={"/"} element={<Dashboard/>} />
+                        <Route path="users" element={<User/>} />
+                        <Route path="orders" element={<Order/>} />
+                    </Routes>
+                </section>
+            </BrowserRouter>
         </div>
     );
 }
