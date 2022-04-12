@@ -1,5 +1,6 @@
 import React, { Component, SyntheticEvent } from "react";
 import { Link } from "react-router-dom";
+import  axios  from "axios";
 
 class Register extends Component{
     
@@ -7,17 +8,22 @@ class Register extends Component{
     last_name = "";
     email = "";
     password = "";
-    confirm_password = "";
+    password_confirm = "";
     role_id = "";
 
-    submit = (e: SyntheticEvent) => {
+    submit  = async (e: SyntheticEvent) => {
         e.preventDefault();
-        console.log({
+
+        const formData = {
             first_name: this.first_name,
             last_name: this.last_name,
             email: this.email,
             password: this.password,
-        })
+            password_confirm: this.password_confirm,
+        }
+        const response = await axios.post("http://localhost:5000/api/register", formData)
+        
+        console.log(response.data)
     }
 
     render(){
@@ -68,7 +74,7 @@ class Register extends Component{
                                 placeholder="Enter password"
                                 type="password"
                                 required
-                                onChange={e => this.confirm_password = e.target.value}
+                                onChange={e => this.password_confirm = e.target.value}
                                 />
                             </label>
                             <label className="block mt-4 text-sm">
