@@ -29,12 +29,12 @@ class Login extends Component{
                             />
                         </label>
 
-                        <a className="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-                            href="./login.html">
-                            Login
-                        </a>
+                        <button className="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-800 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                                type="submit">
+                                Login
+                            </button>
                         <p className="mt-4">
-                            <Link to={'/register'} className="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline">
+                            <Link to={'/register'} className="text-sm font-medium text-blue-600 dark:text-purple-400 hover:underline">
                                 Don't you have an account? Register
                             </Link>
                         </p>

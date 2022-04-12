@@ -13,7 +13,6 @@ class Register extends Component{
 
     submit  = async (e: SyntheticEvent) => {
         e.preventDefault();
-
         const formData = {
             first_name: this.first_name,
             last_name: this.last_name,
