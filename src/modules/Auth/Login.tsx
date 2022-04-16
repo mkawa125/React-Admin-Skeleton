@@ -23,8 +23,8 @@ const Login  = () => {
         setRedirect(true);
     }
         return (
-            <div className="items-center mx-auto w-full  p-6 bg-gray-200 dark:bg-gray-900">
-                <div className="max-w-4xl mx-auto w-1/3 overflow-hidden bg-white  rounded-md shadow-md dark:bg-gray-800">
+            <div className="items-center mx-auto w-full pt-20 p-6 bg-gray-200 dark:bg-gray-900">
+                <div className="max-w-4xl mx-auto w-1/4 mt-20 pt-10 pb-10 overflow-hidden bg-white  rounded-md shadow-md dark:bg-gray-800">
                     <div className="items-center justify-center p-6 sm:p-12 md:w-full">
                         <div className="w-full">
                             <h1 className="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
