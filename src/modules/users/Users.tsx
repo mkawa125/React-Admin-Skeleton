@@ -10,14 +10,12 @@ class User extends Component {
                         <thead>
                             <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                 <th className="px-4 py-3">#</th>
-                                <th className="px-4 py-3">Client</th>
-                                <th className="px-4 py-3">Amount</th>
-                                <th className="px-4 py-3">Amount</th>
-                                <th className="px-4 py-3">Amount</th>
-                                <th className="px-4 py-3">Amount</th>
-                                <th className="px-4 py-3">Amount</th>
+                                <th className="px-4 py-3">Name</th>
+                                <th className="px-4 py-3">Email</th>
+                                <th className="px-4 py-3">Role</th>
+                                <th className="px-4 py-3">Mobile Number</th>
+                                <th className="px-4 py-3">Date created</th>
                                 <th className="px-4 py-3">Status</th>
-                                <th className="px-4 py-3">Date</th>
                                 <th className="px-4 py-3">Actions</th>
                             </tr>
                         </thead>
@@ -42,23 +40,19 @@ class User extends Component {
                                 </td>
 
                                 <td className="px-4 py-3 text-sm">
-                                    $ 863.45
+                                    dahabusaidi@gmail.com
                                 </td>
 
                                 <td className="px-4 py-3 text-sm">
-                                    $ 863.45
+                                    Administrator
                                 </td>
 
                                 <td className="px-4 py-3 text-sm">
-                                    $ 863.45
+                                    +255717495198
                                 </td>
 
                                 <td className="px-4 py-3 text-sm">
-                                    $ 863.45
-                                </td>
-
-                                <td className="px-4 py-3 text-sm">
-                                    $ 863.45
+                                    January 21 2022
                                 </td>
 
                                 <td className="px-4 py-3 text-xs">
@@ -67,9 +61,7 @@ class User extends Component {
                                     </span>
                                 </td>
 
-                                <td className="px-4 py-3 text-sm">
-                                    6/10/2020
-                                </td>
+                                
 
                                 <td className="px-4 py-3">
                                     <div className="flex items-center space-x-4 text-sm">
@@ -120,33 +112,25 @@ class User extends Component {
                                     </div>
                                 </td>
                                 <td className="px-4 py-3 text-sm">
-                                    $ 863.45
+                                    zulphamoody@gmail.com
                                 </td>
 
                                 <td className="px-4 py-3 text-sm">
-                                    $ 863.45
+                                    Editor
                                 </td>
 
                                 <td className="px-4 py-3 text-sm">
-                                    $ 863.45
+                                    +255682955589
                                 </td>
 
                                 <td className="px-4 py-3 text-sm">
-                                    $ 863.45
-                                </td>
-
-                                <td className="px-4 py-3 text-sm">
-                                    $ 863.45
+                                    February 10 2022
                                 </td>
 
                                 <td className="px-4 py-3 text-xs">
                                     <span className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
                                         Approved
                                     </span>
-                                </td>
-
-                                <td className="px-4 py-3 text-sm">
-                                    6/10/2020
                                 </td>
 
                                 <td className="px-4 py-3">
