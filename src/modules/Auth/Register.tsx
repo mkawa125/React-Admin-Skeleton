@@ -35,7 +35,7 @@ class Register extends Component{
                         </h1>
 
                         <form onSubmit={this.submit}>
-                            <label className="block text-sm">
+                            <label className="block mt-4 text-sm">
                                 <span className="text-gray-700 dark:text-gray-400">First Name</span>
                                 <input
                                 className="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
@@ -45,7 +45,7 @@ class Register extends Component{
                                 />
                             </label>
 
-                            <label className="block text-sm">
+                            <label className="block mt-4 text-sm">
                                 <span className="text-gray-700 dark:text-gray-400">Last Name</span>
                                 <input
                                 className="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
@@ -55,7 +55,7 @@ class Register extends Component{
                                 />
                             </label>
 
-                            <label className="block text-sm">
+                            <label className="block mt-4 text-sm">
                                 <span className="text-gray-700 dark:text-gray-400">Email</span>
                                 <input
                                 className="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
@@ -95,7 +95,7 @@ class Register extends Component{
 
                             <hr className="my-8" />
 
-                            <button className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-white text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
+                            {/* <button className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-white text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
                                 <svg
                                 className="w-4 h-4 mr-2"
                                 aria-hidden="true"
@@ -107,9 +107,9 @@ class Register extends Component{
                                 />
                                 </svg>
                                 Github
-                            </button>
+                            </button> */}
 
-                            <button className="flex items-center justify-center w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-white text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
+                            {/* <button className="flex items-center justify-center w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-white text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
                                 <svg
                                 className="w-4 h-4 mr-2"
                                 aria-hidden="true"
@@ -121,9 +121,9 @@ class Register extends Component{
                                 />
                                 </svg>
                                 Twitter
-                            </button>
+                            </button> */}
 
-                            <p className="mt-4">
+                            <p className="mt-0">
                                 <Link to={'/login'} className="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline">
                                     Already have an account? Login
                                 </Link>
