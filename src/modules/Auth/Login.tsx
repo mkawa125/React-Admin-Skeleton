@@ -10,6 +10,7 @@ const Login  = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
+    
 
     const submit = async (e: SyntheticEvent) => {
         
@@ -18,8 +19,10 @@ const Login  = () => {
         const response = await axios.post("http://localhost:5000/api/login", {
             email,
             password
-        }, {withCredentials: true})
+        }, {withCredentials: true});
 
+        window.location.href = '/';
+        console.log(response)
         setRedirect(true);
     }
         return (
