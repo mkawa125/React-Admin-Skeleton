@@ -49,7 +49,7 @@ const Nav = () => {
                                 
                                 <li>
                                     
-                                    {user.first_name} 
+                                    {user.name} 
                                 </li>
 
                                 <li className="relative">
