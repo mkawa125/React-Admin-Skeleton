@@ -20,7 +20,7 @@ class Register extends Component{
             password: this.password,
             password_confirm: this.password_confirm,
         }
-        const response = await axios.post("http://localhost:5000/api/register", formData)
+        const response = await axios.post("register", formData)
         
         console.log(response.data);
     }

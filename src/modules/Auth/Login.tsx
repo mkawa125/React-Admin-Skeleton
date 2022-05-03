@@ -16,10 +16,10 @@ const Login  = () => {
         
         e.preventDefault();
 
-        const response = await axios.post("http://localhost:5000/api/login", {
+        const response = await axios.post("login", {
             email,
             password
-        }, {withCredentials: true});
+        });
 
         window.location.href = '/';
         console.log(response)
