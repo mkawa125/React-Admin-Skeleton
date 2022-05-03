@@ -1,17 +1,22 @@
 import axios from "axios";
 import React, {useEffect, useState } from "react";
+import {User} from "../modules/users/userModel";
 
 const Nav = () => {
 
-    const [user, setUser] = useState({
-        first_name: ''
-    });
+    const [user, setUser] = useState(new User());
 
     useEffect(() => {
         (
            async () => {
-               const {data} = await axios.get('user');
-               setUser(data.user);
+               const {data} = await axios.get('user');               
+               setUser(new User(
+                   data.user.id, 
+                   data.user.first_name, 
+                   data.user.last_name, 
+                   data.user.email,
+               ));
+
            }
         )();
     }, []);
@@ -44,7 +49,7 @@ const Nav = () => {
                                 
                                 <li>
                                     
-                                    {user?.first_name} 
+                                    {user.first_name} 
                                 </li>
 
                                 <li className="relative">
