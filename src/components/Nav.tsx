@@ -1,7 +1,20 @@
-import React, { Component } from "react";
+import axios from "axios";
+import React, {useEffect, useState } from "react";
 
-class Nav extends Component {
-    render() {
+const Nav = () => {
+
+    const [user, setUser] = useState({
+        first_name: ''
+    });
+
+    useEffect(() => {
+        (
+           async () => {
+               const {data} = await axios.get('http://localhost:5000/api/user', {withCredentials: true});
+               setUser(data.user);
+           }
+        )();
+    }, []);
         return (
            
             <header className="shadow-md">
@@ -58,7 +71,7 @@ class Nav extends Component {
                                             <span>Sales</span>
                                             <span
                                             className="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-600">
-                                            2
+                                            20
                                             </span>
                                         </a>
                                         </li>
@@ -71,13 +84,16 @@ class Nav extends Component {
                                     </ul>
                                     </template>
                                 </li>
-
+                                <li>
+                                    
+                                    {user?.first_name} 
+                                </li>
 
                                 <li className="relative">
                                     <button className="align-middle rounded-full focus:shadow-outline-purple focus:outline-none" >
                                     <img className="object-cover w-8 h-8 rounded-full"
                                         src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82"
-                                        alt="" aria-hidden="true" />
+                                        alt="" aria-hidden="true" /> 
                                     </button>
                                     <template x-if="isProfileMenuOpen">
                                     <ul className="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
@@ -168,8 +184,7 @@ class Nav extends Component {
                 </div>
             </nav>
         </header>
-        )
-    }
+    )
 }
 
 export default Nav;
