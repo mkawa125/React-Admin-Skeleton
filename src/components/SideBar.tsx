@@ -1,7 +1,12 @@
+import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
+
+    const logout = async () => {
+        await axios.post("logout", {});
+    }
     return (
             <aside className="z-20 hidden w-64 overflow-y-auto bg-gray-200 dark:bg-gray-800 md:block flex-shrink-0">
                 <div className="py-4 text-gray-500 dark:text-gray-400">
@@ -89,9 +94,11 @@ const SideBar = () => {
                     </ul>
 
                     <div className="px-6 my-6">
-                        <button className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-900 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
-                            Logout 
-                        </button>
+                        <Link to={'/login'} onClick={logout}>
+                            <button className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-900 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
+                                Logout 
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </aside>
