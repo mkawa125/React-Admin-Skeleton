@@ -21,38 +21,38 @@ const Users = () => {
     return ( 
         <Wrapper>
             <div className="w-full shadow-md shadow-gray-300">
-                <table className="w-full border-collapse border border-slate-400">
+                <table className="w-full border-collapse border border-slate-200">
                     <thead className="bg-gray-200">
                         <tr className="bg-gray-200 text-xs font-bold tracking-wide text-left text-black uppercase border-b-2 border-b-black dark:border-gray-800 dark:text-gray-800 dark:bg-gray-800">
-                            <th className="px-4 py-3">#</th>
-                            <th className="px-4 py-3">FULL NAME</th>
-                            <th className="px-4 py-3">EMAIL ADDRESS</th>
-                            <th className="px-4 py-3">UUID</th>
-                            <th className="px-4 py-3">ROLE</th>
+                            <th className="px-4 py-3 border">#</th>
+                            <th className="px-4 py-3 border">FULL NAME</th>
+                            <th className="px-4 py-3 border">EMAIL ADDRESS</th>
+                            <th className="px-4 py-3 border">UUID</th>
+                            <th className="px-4 py-3 border">ROLE</th>
                         </tr>
                     </thead>
-                    <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                    <tbody className="bg-white divide-y divide-x dark:divide-gray-700 dark:bg-gray-800">
 
                         {users.map((user: User) => {
                             return (
-                                <tr key={user.id} className="text-gray-700 dark:text-gray-400">
-                                    <td className="px-4 py-3 text-sm">
+                                <tr key={user.id} className="text-gray-700 dark:text-gray-400 border">
+                                    <td className="px-4 py-3 text-sm border">
                                         {user.id}
                                     </td>
 
-                                    <td className="px-4 py-3 text-sm">
+                                    <td className="px-4 py-3 text-sm border">
                                         {user.first_name} {user.last_name}
                                     </td>
 
-                                    <td className="px-4 py-3 text-sm">
+                                    <td className="px-4 py-3 text-sm border">
                                         {user.email}
                                     </td>
 
-                                    <td className="px-4 py-3 text-sm">
+                                    <td className="px-4 py-3 text-sm border">
                                         {user.uuid}
                                     </td>
 
-                                    <td className="px-4 py-3 text-sm">
+                                    <td className="px-4 py-3 text-sm border">
                                         {user.role.name}
                                     </td>
                                 </tr>
