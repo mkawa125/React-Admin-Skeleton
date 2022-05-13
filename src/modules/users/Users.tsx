@@ -57,6 +57,18 @@ const Users = () => {
                     </tbody>
                 </table>
             </div>
+
+            <nav>
+                <ul className="pagination mt-6">
+                    <li className="page-item">
+                        <a href="#" className="page-link text-blue-600">Previous</a>
+
+                        <a href="#" className="page-link mx-4">
+                                Next
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </Wrapper>
     );
 }
