@@ -22,13 +22,13 @@ const Users = () => {
         <Wrapper>
             <div className="w-full shadow-md shadow-gray-300">
                 <table className="w-full border-collapse border border-slate-400">
-                    <thead>
-                        <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                    <thead className="bg-gray-200">
+                        <tr className="bg-gray-200 text-xs font-bold tracking-wide text-left text-black uppercase border-b-2 border-b-black dark:border-gray-800 dark:text-gray-800 dark:bg-gray-800">
                             <th className="px-4 py-3">#</th>
-                            <th className="px-4 py-3">Name</th>
-                            <th className="px-4 py-3">Email</th>
-                            <th className="px-4 py-3">Role</th>
-                            <th className="px-4 py-3">Mobile Number</th>
+                            <th className="px-4 py-3">FULL NAME</th>
+                            <th className="px-4 py-3">EMAIL ADDRESS</th>
+                            <th className="px-4 py-3">UUID</th>
+                            <th className="px-4 py-3">ROLE</th>
                         </tr>
                     </thead>
                     <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
