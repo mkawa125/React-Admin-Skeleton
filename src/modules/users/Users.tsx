@@ -3,7 +3,6 @@ import React, { Component, useEffect, useState } from "react";
 import Wrapper from "../../components/Wrapper";
 import { User } from "./userModel";
 
-
 const Users = () => {
     const [users, setUsers] = useState([]);
 
@@ -11,10 +10,7 @@ const Users = () => {
         (
             async () => {
                 const {data} = await axios.get('users');
-
                 setUsers(data.data)
-
-                console.log("Papaa Mukuru", data.data)
             }
         )()
     })
@@ -64,5 +60,4 @@ const Users = () => {
         </Wrapper>
     );
 }
-
 export default Users;
