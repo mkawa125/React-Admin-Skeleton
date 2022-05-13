@@ -14,7 +14,7 @@ const Users = () => {
 
                 setUsers(data.data)
 
-                console.log(data.data)
+                console.log("Papaa Mukuru", data.data)
             }
         )()
     })
@@ -53,7 +53,7 @@ const Users = () => {
                                     </td>
 
                                     <td className="px-4 py-3 text-sm">
-                                        {/* {user.role} */}
+                                        {user.role.name}
                                     </td>
                                 </tr>
                             )
