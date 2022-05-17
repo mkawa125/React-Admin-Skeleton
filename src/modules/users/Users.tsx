@@ -33,6 +33,14 @@ const Users = () => {
         }
     }
 
+    const deleteUser =async (id:number) => {
+        if (window.confirm("Are you sure you want to delete this user?")) {
+            await axios.delete(`users/${id}`);
+
+            setUsers(users.filter((u: User) => u.id !== id))
+        }
+    }
+
     return ( 
         <Wrapper>
             <div className="w-full shadow-md shadow-gray-300">
@@ -44,6 +52,7 @@ const Users = () => {
                             <th className="px-4 py-3 border">EMAIL ADDRESS</th>
                             <th className="px-4 py-3 border">UUID</th>
                             <th className="px-4 py-3 border">ROLE</th>
+                            <th className="px-4 py-3 border">ACTIONS</th>
                         </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-x dark:divide-gray-700 dark:bg-gray-800">
@@ -69,6 +78,13 @@ const Users = () => {
 
                                     <td className="px-4 py-3 text-sm border">
                                         {user.role.name}
+                                    </td>
+                                    <td className="px-4 py-3 text-sm border">
+                                        <a href="#" className="bg-transparent hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded"
+                                            onClick={() => deleteUser(user.id)}
+                                            >
+                                                Delete
+                                        </a>
                                     </td>
                                 </tr>
                             )
