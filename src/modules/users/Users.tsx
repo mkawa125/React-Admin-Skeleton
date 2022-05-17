@@ -45,10 +45,10 @@ const Users = () => {
     return ( 
         <Wrapper>
             <div className="w-full shadow-md shadow-gray-300">
-            <Link to='/users/create' className="text-sm font-medium text-blue-600 dark:text-purple-400 hover:underline">
+            <Link to='/users/create' className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
                 Add New User
             </Link>
-                <table className="w-full border-collapse border border-slate-200">
+                <table className="w-full border-collapse border border-slate-200 mt-4">
                     <thead className="bg-gray-200">
                         <tr className="bg-gray-200 text-xs font-bold tracking-wide text-left text-black uppercase border-b-2 border-b-black dark:border-gray-800 dark:text-gray-800 dark:bg-gray-800">
                             <th className="px-4 py-3 border">#</th>
