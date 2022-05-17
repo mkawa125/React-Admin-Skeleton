@@ -11,6 +11,7 @@ import Register from './modules/Auth/Register';
 import Product from './modules/products/Products';
 import Login from './modules/Auth/Login';
 import CreateUser from './modules/users/forms/createUser';
+import EditUser from './modules/users/forms/editUser';
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                     <Route path="login" element={<Login/>} />
                     <Route path="products" element={<Product/>} />
                     <Route path="users/create" element={<CreateUser/>} />
+                    <Route path="users/:id/edit" element={<EditUser/>} />
                 </Routes>
             </BrowserRouter>
         </div>
