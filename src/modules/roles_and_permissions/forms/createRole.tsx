@@ -10,6 +10,7 @@ const CreateRole  = () => {
     const [name, setRoleName] = useState('');
     const [redirect, setRedirect] = useState(false);
     const [permissions, setPermissions] = useState([]);
+    const [selected, setSelected] = useState([] as number[]);
     
     useEffect(() =>{
         (
@@ -25,11 +26,22 @@ const CreateRole  = () => {
         e.preventDefault();
 
         const response = await axios.post("roles", {
-            name
+            name,
+            permissions: selected
         });
 
         window.location.href = '/roles';
         setRedirect(true);
+    }
+
+    /** This needs to understand and refactor */
+
+    const checked = (id:number) => {
+        if (selected.some(s => s === id)) {
+            setSelected(selected.filter(s => s !== id))
+            return
+        }
+        setSelected([...selected, id])
     }
     return (
         <Wrapper>
@@ -58,7 +70,8 @@ const CreateRole  = () => {
                                     <input
                                     className=" py-2 mr-2 px-2 border rounded mt-1 focus:outline-none"
                                     type="checkbox"
-                                    onChange={e => setRoleName(e.target.value)}/>
+                                    value={permission.id}
+                                    onChange={e => checked(permission.id)}/>
                                 
                                     <label className="">
                                         <span className="text-gray-700 dark:text-gray-400">{ permission.name }</span>
