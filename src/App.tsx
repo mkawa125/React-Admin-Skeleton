@@ -10,6 +10,7 @@ import Order from './modules/orders/Orders';
 import Register from './modules/Auth/Register';
 import Product from './modules/products/Products';
 import Login from './modules/Auth/Login';
+import CreateUser from './modules/users/forms/createUser';
 
 function App() {
     return (
@@ -17,11 +18,12 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path={"/"} element={<Dashboard/>} />
-                    <Route path="users" element={<User/>} />
+                    <Route path="users"  element={<User/>} />
                     <Route path="orders" element={<Order/>} />
                     <Route path="register" element={<Register/>} />
                     <Route path="login" element={<Login/>} />
                     <Route path="products" element={<Product/>} />
+                    <Route path="users/create" element={<CreateUser/>} />
                 </Routes>
             </BrowserRouter>
         </div>
