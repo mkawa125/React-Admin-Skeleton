@@ -20,8 +20,6 @@ const Users = () => {
         )()
     }, [page]);
 
-    console.log("Last page", lastPage);
-
     const next = () => {
         if (page < lastPage) {
             setPage(page + 1);
