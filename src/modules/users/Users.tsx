@@ -5,15 +5,34 @@ import { User } from "./userModel";
 
 const Users = () => {
     const [users, setUsers] = useState([]);
+    const [page, setPage] = useState(1);
+    const [lastPage, setLastPage] = useState(0);
 
     useEffect(() => {
         (
             async () => {
-                const {data} = await axios.get('users');
-                setUsers(data.data)
+                const {data} = await axios.get(`users?page=${page}`);
+                setUsers(data.data.users)
+                setLastPage(data.data.meta.last_page);
+                
             }
         )()
-    })
+    }, [page]);
+
+    console.log("Last page", lastPage);
+
+    const next = () => {
+        if (page < lastPage) {
+            setPage(page + 1);
+        }
+    }
+
+    const previous = () => {
+        if (page >= 1) {
+            setPage(page - 1)
+        }
+    }
+
     return ( 
         <Wrapper>
             <div className="w-full shadow-md shadow-gray-300">
@@ -61,9 +80,9 @@ const Users = () => {
             <nav>
                 <ul className="pagination mt-6">
                     <li className="page-item">
-                        <a href="#" className="page-link text-blue-600">Previous</a>
+                        <a href="#" onClick={previous} className="page-link text-blue-600">Previous</a>
 
-                        <a href="#" className="page-link mx-4">
+                        <a href="#" onClick={next} className="page-link text-blue-600 mx-4">
                                 Next
                         </a>
                     </li>
