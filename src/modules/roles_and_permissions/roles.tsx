@@ -16,11 +16,19 @@ const Roles = () => {
         )()
     });
 
+    const deleteRole =async (id:number) => {
+        if (window.confirm("Are you sure you want to delete this role?")) {
+            await axios.delete(`roles/${id}`);
+
+            setRoles(roles.filter((r: Role) => r.id !== id))
+        }
+    }
+
 
     return ( 
         <Wrapper>
             <div className="w-full shadow-md shadow-gray-300">
-            <Link to='/users/create' className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+            <Link to='/roles/create' className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
                 Add New Role
             </Link>
                 <table className="w-full border-collapse border border-slate-200 mt-4">
@@ -47,7 +55,7 @@ const Roles = () => {
                                     
                                     <td className="px-4 py-3 text-sm border">
                                         <a href="#" className="bg-transparent hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded"
-                                            
+                                            onClick={() => deleteRole(role.id)}
                                             >
                                                 Delete
                                         </a>

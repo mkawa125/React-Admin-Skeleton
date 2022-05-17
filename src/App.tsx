@@ -13,6 +13,7 @@ import Login from './modules/Auth/Login';
 import CreateUser from './modules/users/forms/createUser';
 import EditUser from './modules/users/forms/editUser';
 import Roles from './modules/roles_and_permissions/roles';
+import CreateRole from './modules/roles_and_permissions/forms/createRole';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                     <Route path={"/"} element={<Dashboard/>} />
                     <Route path="users"  element={<User/>} />
                     <Route path="roles"  element={<Roles/>} />
+                    <Route path="roles/create"  element={<CreateRole/>} />
                     <Route path="orders" element={<Order/>} />
                     <Route path="register" element={<Register/>} />
                     <Route path="login" element={<Login/>} />
