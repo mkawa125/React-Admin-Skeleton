@@ -78,8 +78,9 @@ const EditProduct  = () => {
                         <textarea
                             className="block w-full py-2 px-2 border rounded mt-1 focus:outline-none  form-input"
                             onChange={e => setDescription(e.target.value)}
-                            defaultValue={description}
                             required
+                            rows={4}
+                            value={description}
                             placeholder="Product descriptions"
                         >
                         { description }
