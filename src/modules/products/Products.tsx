@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Paginator from "../../components/Paginator";
 import Wrapper from "../../components/Wrapper";
 import { Product } from "./productModel";
 
@@ -107,17 +108,8 @@ const Products = () => {
                 </table>
             </div>
 
-            <nav>
-                <ul className="pagination mt-6">
-                    <li className="page-item">
-                        <a href="#" onClick={previous} className="page-link text-blue-600">Previous</a>
+            <Paginator page={page} lastPage={lastPage} pageChanged={setPage}/>
 
-                        <a href="#" onClick={next} className="page-link text-blue-600 mx-4">
-                                Next
-                        </a>
-                    </li>
-                </ul>
-            </nav>
         </Wrapper>
         );
 }
