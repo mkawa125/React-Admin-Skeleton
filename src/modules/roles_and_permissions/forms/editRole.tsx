@@ -33,11 +33,12 @@ const EditRole  = () => {
         
         e.preventDefault();
 
-        const response = await axios.post("roles", {
+        const response = await axios.put(`roles/${id}`, {
             name,
             permissions: selected
         });
 
+        /** Redirect after updated */
         window.location.href = '/roles';
         setRedirect(true);
     }
@@ -93,9 +94,9 @@ const EditRole  = () => {
                     }
                     </div>
                     
-                    <button className="block w-full px-4 py-2 mt-4 font-bold text-center text-white bg-gray-500 border border-transparent rounded active:bg-purple-600 hover:bg-gray-700 "
+                    <button className="block w-full px-4 py-2 mt-4 font-bold text-center text-white bg-gray-600 border border-transparent rounded active:bg-purple-600 hover:bg-gray-700 "
                         type="submit">
-                        Save
+                        update
                     </button>
                     
                 </form> 
