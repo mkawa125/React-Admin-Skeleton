@@ -92,12 +92,12 @@ const Products = () => {
                                     </td> */}
 
                                     <td className="px-4 py-3 text-sm border">
-                                        <a href="#" className="bg-transparent hover:bg-gray-200 text-black hover:text-black py-1 px-3 border border-gray-400 rounded"
+                                        <a href="#" className="bg-transparent hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded"
                                             onClick={() => deleteProduct(product.id)}
                                             >
                                                 Delete
                                         </a>
-                                        <Link to={`/products/${product.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-1 px-3 border border-gray-400 rounded">
+                                        <Link to={`/products/${product.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded">
                                                 Edit
                                         </Link>
                                     </td>

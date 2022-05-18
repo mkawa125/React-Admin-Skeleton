@@ -33,7 +33,7 @@ const Users = () => {
     return ( 
         <Wrapper>
             <div className="w-full shadow-md shadow-gray-300">
-            <Link to='/users/create' className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+            <Link to='/users/create' className="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
                 Add New User
             </Link>
                 <table className="w-full border-collapse border border-slate-200 mt-4">
@@ -72,12 +72,12 @@ const Users = () => {
                                         {user.role.name}
                                     </td>
                                     <td className="px-4 py-3 text-sm border">
-                                        <a href="#" className="bg-transparent hover:bg-gray-200 text-black hover:text-black py-1 px-3 border border-gray-400 rounded"
+                                        <a href="#" className="bg-transparent hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded"
                                             onClick={() => deleteUser(user.id)}
                                             >
                                                 Delete
                                         </a>
-                                        <Link to={`/users/${user.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-1 px-3 border border-gray-400 rounded">
+                                        <Link to={`/users/${user.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded">
                                                 Edit
                                         </Link>
                                     </td>
