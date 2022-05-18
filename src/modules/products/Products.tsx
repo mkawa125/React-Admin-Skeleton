@@ -41,7 +41,7 @@ const Products = () => {
     }
     return (
         <Wrapper>
-            <div className="table w-full p-10 shadow-md bg-white shadow-gray-300">
+            <div className="w-full shadow-md shadow-gray-300">
             <Link to='/products/create' className="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-300 rounded shadow">
                 Add New Product
             </Link>
