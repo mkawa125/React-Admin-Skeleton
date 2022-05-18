@@ -6,6 +6,7 @@ export class Product {
         public price = 0,
         public created_at = '',
         public updated_at = '',
+        public image = '',
         
 
     ){}

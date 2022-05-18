@@ -7,24 +7,23 @@ import { Permission } from "../../roles_and_permissions/permissionModel";
 
 const EditProduct  = () => {
 
-    const [name, setRoleName] = useState('');
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [price, setPrice]= useState('');
+    const [image, setImage] = useState('');
     const [redirect, setRedirect] = useState(false);
-    const [permissions, setPermissions] = useState([]);
-    const [selected, setSelected] = useState([] as number[]);
     const {id} = useParams();
     
     useEffect(() => {
         (
            async () => {
-             const response = await axios.get('permissions');
 
-             setPermissions(response.data.data);
+             const response = await axios.get(`products/${id}`)
 
-             const {data} = await axios.get(`roles/${id}`);
+             setName(response.data.data.name);
+             setDescription(response.data.data.description);
+             setPrice(response.data.data.price);
 
-             setRoleName(data.data.name);
-
-             setSelected(data.data.permissions.map((p: Permission) => p.id))
            }
         )()
     }, [])
@@ -33,70 +32,61 @@ const EditProduct  = () => {
         
         e.preventDefault();
 
-        const response = await axios.put(`roles/${id}`, {
+        const response = await axios.put(`products/${id}`, {
             name,
-            permissions: selected
+            description,
+            price
         });
 
         /** Redirect after updated */
-        window.location.href = '/roles';
+        window.location.href = '/products';
         setRedirect(true);
     }
 
-    /** This needs to understand and refactor */
-
-    const checked = (sid:number) => {
-        if (selected.some(s => s === sid)) {
-            setSelected(selected.filter(s => s !== sid))
-            return;
-        }
-        setSelected([...selected, sid])
-    }
     return (
         <Wrapper>
             <div className="items-center mx-auto bg-white p-8 shadow  w-2/3  dark:bg-gray-900">
                 <div className="">
                 <form onSubmit={submit}>
                     <label className="block">
-                        <span className="text-gray-700 dark:text-gray-400">Role Name</span>
+                        <span className="text-gray-700 dark:text-gray-400">Product Name</span>
                         <input
                         className="block w-full py-2 px-2 border rounded mt-1 focus:outline-none  form-input"
                         type="text"
                         defaultValue={name}
-                        onChange={e => setRoleName(e.target.value)}
+                        onChange={e => setName(e.target.value)}
                         required
-                        placeholder="Role Name"
+                        placeholder="Product Name"
                         />
                     </label>
 
-                    <label className="block mt-4 mb-2">
-                        <span className="text-gray-700 mt-4 dark:text-gray-400">Permissions</span>
+                    <label className="block mt-4">
+                        <span className="text-gray-700 dark:text-gray-400">Price</span>
+                        <input
+                        className="block w-full py-2 px-2 border rounded mt-1 focus:outline-none  form-input"
+                        type="number"
+                        defaultValue={price}
+                        onChange={e => setPrice(e.target.value)}
+                        required
+                        placeholder="Price"
+                        />
                     </label>
-                    <div className="grid grid-cols-4">
-                    {
-                        permissions.map((permission: Permission) => {
-                            return (
 
-                                <div className="form-check form-check-input" key={permission.id}>
-                                    <input
-                                    className=" py-2 mr-2 px-2 border rounded mt-1 focus:outline-none"
-                                    type="checkbox"
-                                    value={permission.id}
-                                    checked={ selected.some(selectedPermissionId => selectedPermissionId == permission.id)}
-                                    onChange={() => checked(permission.id)}
-                                    />
-                                
-                                    <label className="">
-                                        <span className="text-gray-700 dark:text-gray-400">{permission.name }
-                                        
-                                        </span>
-                                    </label>
-                                </div>
-
-                            )
-                        })
-                    }
-                    </div>
+                    <label className="block mt-4">
+                        <span className="text-gray-700 dark:text-gray-400">Description</span>
+                    </label>
+                        <textarea
+                            className="block w-full py-2 px-2 border rounded mt-1 focus:outline-none  form-input"
+                            onChange={e => setDescription(e.target.value)}
+                            defaultValue={description}
+                            required
+                            placeholder="Product descriptions"
+                        >
+                        { description }
+                        </textarea>
+                    
+                    
+        
                     
                     <button className="block w-full px-4 py-2 mt-4 font-bold text-center text-white bg-gray-600 border border-transparent rounded active:bg-purple-600 hover:bg-gray-700 "
                         type="submit">

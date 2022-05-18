@@ -33,7 +33,7 @@ const Products = () => {
 
     const deleteProduct =async (id:number) => {
         if (window.confirm("Are you sure you want to delete this product?")) {
-            await axios.delete(`roles/${id}`);
+            await axios.delete(`products/${id}`);
 
             setProducts(products.filter((product: Product) => product.id !== id))
         }
@@ -48,6 +48,7 @@ const Products = () => {
                     <thead className="bg-gray-200">
                         <tr className="bg-gray-200 text-xs font-bold tracking-wide text-left text-black uppercase border-b-2 border-b-black dark:border-gray-800 dark:text-gray-800 dark:bg-gray-800">
                             <th className="px-4 py-3 border">#</th>
+                            {/* <th className="px-4 py-3 border">IMAGE</th> */}
                             <th className="px-4 py-3 border">NAME</th>
                             <th className="px-4 py-3 border">DESCRIPTION</th>
                             <th className="px-4 py-3 border">PRICE</th>
@@ -64,6 +65,10 @@ const Products = () => {
                                     <td className="px-4 py-3 text-sm border">
                                         {product.id}
                                     </td>
+
+                                    {/* <td className="px-4 py-3 text-sm border">
+                                        <img src={product.image} alt="" />
+                                    </td> */}
 
                                     <td className="px-4 py-3 text-sm border">
                                         {product.name}
@@ -91,7 +96,7 @@ const Products = () => {
                                             >
                                                 Delete
                                         </a>
-                                        <Link to={`/users/${product.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-1 px-3 border border-gray-400 rounded">
+                                        <Link to={`/products/${product.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-1 px-3 border border-gray-400 rounded">
                                                 Edit
                                         </Link>
                                     </td>
