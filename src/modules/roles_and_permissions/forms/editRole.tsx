@@ -1,35 +1,30 @@
 import axios from "axios";
 import React, { Component, SyntheticEvent, useEffect, useState } from "react";
-import { Link, Params, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Wrapper from "../../../components/Wrapper";
-import { Role } from "../../roles_and_permissions/roleModel";
+import { Permission } from "../../roles_and_permissions/permissionModel";
 
 
-const EditUser  = (props: any) => {
+const EditRole  = () => {
 
-
-    const [first_name, setFirstName] = useState('');
-    const [last_name, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [role_id, setRoleId] = useState('');
-    const [roles, setRoles] = useState([]);
-    const [password, setPassword] = useState('');
+    const [name, setRoleName] = useState('');
     const [redirect, setRedirect] = useState(false);
+    const [permissions, setPermissions] = useState([]);
+    const [selected, setSelected] = useState([] as number[]);
     const {id} = useParams();
     
-    useEffect(() =>{
+    useEffect(() => {
         (
            async () => {
-             const {data} = await axios.get('roles');
+             const {data} = await axios.get('permissions');
+             setPermissions(data.data);
 
-             setRoles(data.data);
+             const response = await axios.get(`roles/${id}`)
 
-             const response = await axios.get(`users/${id}`)
+             setRoleName(response.data.data.name);
+             console.log(response.data.data.permissions);
 
-             setFirstName(response.data.data.first_name);
-             setLastName(response.data.data.last_name);
-             setEmail(response.data.data.email);
-             setRoleId(response.data.data.role.id);
+             setSelected(response.data.data.permissions.map((p: Permission) => p.id))
            }
         )()
     }, [])
@@ -38,15 +33,23 @@ const EditUser  = (props: any) => {
         
         e.preventDefault();
 
-        const response = await axios.put(`users/${id}`, {
-            first_name,
-            last_name,
-            email,
-            role_id
+        const response = await axios.post("roles", {
+            name,
+            permissions: selected
         });
 
-        window.location.href = '/users';
+        window.location.href = '/roles';
         setRedirect(true);
+    }
+
+    /** This needs to understand and refactor */
+
+    const checked = (id:number) => {
+        if (selected.some(s => s === id)) {
+            setSelected(selected.filter(s => s !== id))
+            return
+        }
+        setSelected([...selected, id])
     }
     return (
         <Wrapper>
@@ -54,60 +57,45 @@ const EditUser  = (props: any) => {
                 <div className="">
                 <form onSubmit={submit}>
                     <label className="block">
-                        <span className="text-gray-700 dark:text-gray-400">First Name</span>
+                        <span className="text-gray-700 dark:text-gray-400">Role Name</span>
                         <input
                         className="block w-full py-2 px-2 border rounded mt-1 focus:outline-none  form-input"
                         type="text"
-                        defaultValue={first_name}
-                        onChange={e => setFirstName(e.target.value)}
+                        defaultValue={name}
+                        onChange={e => setRoleName(e.target.value)}
                         required
-                        placeholder="First Name"
+                        placeholder="Role Name"
                         />
                     </label>
 
-                    <label className="block  mt-4">
-                        <span className="text-gray-700 dark:text-gray-400">Last Name</span>
-                        <input
-                        className="block w-full py-2 px-2 border rounded mt-1  focus:outline-none  form-input"
-                        type="Last Name"
-                        defaultValue={last_name}
-                        onChange={e => setLastName(e.target.value)}
-                        required
-                        placeholder="Last Name"
-                        />
+                    <label className="block mt-4 mb-2">
+                        <span className="text-gray-700 mt-4 dark:text-gray-400">Permissions</span>
                     </label>
-
-                    <label className="block  mt-4">
-                        <span className="text-gray-700 dark:text-gray-400">Email</span>
-                        <input
-                        className="block w-full py-2 px-2 border rounded mt-1  focus:outline-none  form-input"
-                        type="email"
-                        defaultValue={email}
-                        onChange={e => setEmail(e.target.value)}
-                        required
-                        placeholder="Email Address"
-                        />
-                    </label>
-
-                    <label className="block mt-4 ">
-                        <span className="text-gray-700 dark:text-gray-400">Role</span>
-                    </label>
-                    <select className="block w-full py-2 px-2 rounded mt-1 focus:outline-none  form-input"
-                        value={role_id}
-                        onChange={e => setRoleId(e.target.value)}
-                        required>
-
-                        {roles.map((role: Role) => {
+                    <div className="grid grid-cols-4">
+                    {
+                        permissions.map((permission: Permission) => {
                             return (
-                                <option key={role.id} value={role.id}> {role.name}</option>
+                                <div>
+                                    <input
+                                    className=" py-2 mr-2 px-2 border rounded mt-1 focus:outline-none"
+                                    type="checkbox"
+                                    value={permission.id}
+                                    defaultChecked={selected.some(s => s === permission.id)}
+                                    
+                                    onChange={e => checked(permission.id)}/>
+                                
+                                    <label className="">
+                                        <span className="text-gray-700 dark:text-gray-400">{ permission.name }</span>
+                                    </label>
+                                </div>
                             )
-                        })}
-                            
-                    </select>
-
+                        })
+                    }
+                    </div>
+                    
                     <button className="block w-full px-4 py-2 mt-4 font-bold text-center text-white bg-gray-500 border border-transparent rounded active:bg-purple-600 hover:bg-gray-700 "
                         type="submit">
-                        Update
+                        Save
                     </button>
                     
                 </form> 
@@ -117,4 +105,4 @@ const EditUser  = (props: any) => {
     )
 };
 
-export default EditUser
+export default EditRole
