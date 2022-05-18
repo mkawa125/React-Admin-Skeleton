@@ -16,15 +16,15 @@ const EditRole  = () => {
     useEffect(() => {
         (
            async () => {
-             const {data} = await axios.get('permissions');
-             setPermissions(data.data);
+             const response = await axios.get('permissions');
 
-             const response = await axios.get(`roles/${id}`)
+             setPermissions(response.data.data);
 
-             setRoleName(response.data.data.name);
-             console.log(response.data.data.permissions);
+             const {data} = await axios.get(`roles/${id}`);
 
-             setSelected(response.data.data.permissions.map((p: Permission) => p.id))
+             setRoleName(data.data.name);
+
+             setSelected(data.data.permissions.map((p: Permission) => p.id))
            }
         )()
     }, [])
@@ -45,12 +45,12 @@ const EditRole  = () => {
 
     /** This needs to understand and refactor */
 
-    const checked = (id:number) => {
-        if (selected.some(s => s === id)) {
-            setSelected(selected.filter(s => s !== id))
-            return
+    const checked = (sid:number) => {
+        if (selected.some(s => s === sid)) {
+            setSelected(selected.filter(s => s !== sid))
+            return;
         }
-        setSelected([...selected, id])
+        setSelected([...selected, sid])
     }
     return (
         <Wrapper>
@@ -76,19 +76,23 @@ const EditRole  = () => {
                     {
                         permissions.map((permission: Permission) => {
                             return (
-                                <div>
+
+                                <div className="form-check form-check-input" key={permission.id}>
                                     <input
                                     className=" py-2 mr-2 px-2 border rounded mt-1 focus:outline-none"
                                     type="checkbox"
                                     value={permission.id}
-                                    defaultChecked={selected.some(s => s === permission.id)}
-                                    
-                                    onChange={e => checked(permission.id)}/>
+                                    checked={ selected.some(selectedPermissionId => selectedPermissionId == permission.id)}
+                                    onChange={() => checked(permission.id)}
+                                    />
                                 
                                     <label className="">
-                                        <span className="text-gray-700 dark:text-gray-400">{ permission.name }</span>
+                                        <span className="text-gray-700 dark:text-gray-400">{permission.name }
+                                        
+                                        </span>
                                     </label>
                                 </div>
+
                             )
                         })
                     }
