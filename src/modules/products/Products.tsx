@@ -52,7 +52,7 @@ const Products = () => {
                             <th className="px-4 py-3 border">DESCRIPTION</th>
                             <th className="px-4 py-3 border">PRICE</th>
                             <th className="px-4 py-3 border">DATE CREATED</th>
-                            <th className="px-4 py-3 border">LAST UPDATED</th>
+                            {/* <th className="px-4 py-3 border">LAST UPDATED</th> */}
                             <th className="px-4 py-3 border">ACTIONS</th>
                         </tr>
                     </thead>
@@ -81,9 +81,9 @@ const Products = () => {
                                         {product.created_at}
                                     </td>
 
-                                    <td className="px-4 py-3 text-sm border">
+                                    {/* <td className="px-4 py-3 text-sm border">
                                         {product.updated_at}
-                                    </td>
+                                    </td> */}
 
                                     <td className="px-4 py-3 text-sm border">
                                         <a href="#" className="bg-transparent hover:bg-gray-200 text-black hover:text-black py-1 px-3 border border-gray-400 rounded"
