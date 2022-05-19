@@ -1,8 +1,47 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, useEffect } from 'react';
 import Wrapper from './Wrapper';
+import * as c3 from "c3";
+import axios from 'axios';
 
-class Dashboard extends React.Component {
-    render() { 
+const Dashboard  = () => {
+    useEffect(() => {
+        (
+           async () => {
+            const chart = c3.generate({
+                bindto:'#chart',
+                data: {
+                    x: 'x',
+                    columns: [
+                        ['x'],
+                        ['Sales'],
+                    ],
+                    types: {
+                        Sales: 'bar'
+                    }
+                },
+                axis: {
+                    x: {
+                        type: 'timeseries',
+                        tick: {
+                            format: '%Y-%m-%d'
+                        }
+                    }
+                }
+            
+            });
+
+            const {data} = await axios.get('orders/report');
+
+            chart.load({
+                columns: [
+                    ['x', ...data.data.map((r: any) => r.date)],
+                    ['Sales', ...data.data.map((r: any) => r.sum)]
+                ]
+            })
+           }
+        )()
+
+    }, [])
         return (
             <Wrapper>
                 <div id="main" className="main-content flex-1 bg-white p-10 shadow-md shadow-gray-300 md:pb-5">
@@ -82,9 +121,14 @@ class Dashboard extends React.Component {
                         </div>
                     </div>
                 </div>
+
+                <div id="main" className="main-content mt-8 flex-1 bg-white p-10 shadow-md shadow-gray-300 md:pb-5">
+                    <div id='chart' className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+
+                    </div>
+                </div>
             </Wrapper>
          );
-    }
 }
  
 export default Dashboard;
