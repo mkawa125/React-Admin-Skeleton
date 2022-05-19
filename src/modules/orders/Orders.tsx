@@ -55,6 +55,7 @@ const Orders = () => {
             <table className="w-full border-collapse border border-slate-200 mt-4">
                 <thead className="bg-gray-200">
                     <tr className="bg-gray-200 text-xs font-bold tracking-wide text-left text-black uppercase border-b border-b-black dark:border-gray-800 dark:text-gray-800 dark:bg-gray-800">
+                        <th className="px-4 py-3"></th>
                         <th className="px-4 py-3">#</th>
                         <th className="px-4 py-3">FULL NAME</th>
                         <th className="px-4 py-3">EMAIL ADDRESS</th>
@@ -73,8 +74,12 @@ const Orders = () => {
                                         <a href="#"
                                         onClick={() => select(order.id) }
                                         >
-                                            <i className="fa fa-list"></i> {order.id}
+                                            <i className="fa fa-list"></i> 
                                         </a>
+                                    </td>
+
+                                    <td className="px-4 py-3 text-sm border-b">
+                                       {order.id}
                                     </td>
 
                                     <td className="px-4 py-2 text-sm border-b">
@@ -110,7 +115,7 @@ const Orders = () => {
                                 </tr>
 
                                 <tr>
-                                    <td colSpan={6}>
+                                    <td colSpan={7}>
                                         <div className="px-8 overflow-hidden" style={selected === order.id ? show : hide}>
                                             <table className="w-full  bg-gray-100  border-b p-8 mt mb-4 mt-2">
                                                 <thead  className="bg-gray-200">
