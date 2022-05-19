@@ -1,6 +1,7 @@
 import axios from "axios";
-import React, { Component, SyntheticEvent, useEffect, useState } from "react";
+import React, { Component, SyntheticEvent, useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import ImageUpload from "../../../components/ImageUpload";
 import Wrapper from "../../../components/Wrapper";
 import { Permission } from "../../roles_and_permissions/permissionModel";
 
@@ -13,6 +14,7 @@ const EditProduct  = () => {
     const [image, setImage] = useState('');
     const [redirect, setRedirect] = useState(false);
     const {id} = useParams();
+    const ref = useRef<HTMLInputElement>(null);
     
     useEffect(() => {
         (
@@ -21,6 +23,7 @@ const EditProduct  = () => {
              const response = await axios.get(`products/${id}`)
 
              setName(response.data.data.name);
+             setImage(response.data.data.image);
              setDescription(response.data.data.description);
              setPrice(response.data.data.price);
 
@@ -35,12 +38,21 @@ const EditProduct  = () => {
         const response = await axios.put(`products/${id}`, {
             name,
             description,
+            image,
             price
         });
 
         /** Redirect after updated */
         window.location.href = '/products';
         setRedirect(true);
+    }
+
+    const updateImage = (url: string) => {
+        if (ref.current) {
+            ref.current.value = url;
+        }
+
+        setImage(url)
     }
 
     return (
@@ -71,6 +83,19 @@ const EditProduct  = () => {
                         placeholder="Price"
                         />
                     </label>
+
+                    <label className="block mt-4">
+                        <span className="text-gray-700 dark:text-gray-400">Image</span>
+                    </label>
+                        <input
+                            className="block mb-2 w-full py-2 px-2 border rounded mt-1 focus:outline-none  form-input"
+                            ref={ref}
+                            defaultValue={image}
+                            onChange={e => setImage(e.target.value)}
+                            required
+                        />
+                        <ImageUpload uploaded={setImage}></ImageUpload>
+                        
 
                     <label className="block mt-4">
                         <span className="text-gray-700 dark:text-gray-400">Description</span>
