@@ -18,7 +18,7 @@ const SideBar = () => {
                     <ul className="mt-6">
                         <li className="relative px-6 py-3 bg-gray-400">
                             <span className="absolute inset-y-0 left-0 w-1 bg-blue-900 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>
-                            <NavLink className="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100" to={'/'}>
+                            <NavLink className="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-blue-700 dark:hover:text-gray-200 dark:text-gray-100" to={'/'}>
                             <i className="fa fa-home"></i>
                                 <span className="ml-4">Dashboard</span>
                             </NavLink>
@@ -27,8 +27,8 @@ const SideBar = () => {
 
 
                     <ul>
-                        <li className="relative px-6 py-3">
-                            <NavLink className="inline-flex items-center w-full text-sm transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" to={'/users'}>
+                        <li className="relative px-6 py-3 hover:bg-gray-300">
+                            <NavLink className="inline-flex items-center w-full text-sm transition-colors duration-150 hover:text-blue-700 dark:hover:text-gray-200" to={'/users'}>
                                 <i className="fa fa-users"></i> 
                                 <span className="ml-4">Users Management</span>
                             </NavLink>
@@ -46,7 +46,7 @@ const SideBar = () => {
                         </li> */}
 
                         <li className="relative px-6 py-3">
-                            <NavLink to={"/roles"} className="inline-flex items-center w-full text-sm  transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                            <NavLink to={"/roles"} className="inline-flex items-center w-full text-sm  transition-colors duration-150 hover:text-blue-700 dark:hover:text-gray-200">
                                 <i className="fa fa-user-secret"></i>
                                 <span className="ml-4">Roles & Permissions</span>
                             </NavLink>
@@ -55,7 +55,7 @@ const SideBar = () => {
 
 
                         <li className="relative px-6 py-3">
-                            <NavLink to={'/products'} className="inline-flex items-center w-full text-sm transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                            <NavLink to={'/products'} className="inline-flex items-center w-full text-sm transition-colors duration-150 hover:text-blue-700 dark:hover:text-gray-200">
                             <i className="fa fa-list"></i>
                                 <span className="ml-4">Products </span>
                             </NavLink>
@@ -94,10 +94,12 @@ const SideBar = () => {
                         </template>
                     </ul>
 
-                    <div className="px-6 my-6 items-center">
+                    
+
+                    <div className="px-4 my-6 items-center absolute bottom-96 w-64">
                         <NavLink to={'/login'} onClick={logout} className="items-center">
-                            <button className="flex items-center text-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-900 border border-transparent rounded active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
-                                Logout 
+                            <button className=" items-center text-center font-semibold justify-between w-full px-4 py-3 text-sm font-medium  text-white  bg-blue-900  rounded  hover:bg-blue-800">
+                                Logout  <i className="fa fa-sign-out-alt text-white mx-1"></i>
                             </button>
                         </NavLink>
                     </div>
