@@ -11,6 +11,7 @@ const Orders = () => {
     const [orders, setOrders] = useState([]);
     const [page, setPage] = useState(1);
     const [lastPage, setLastPage] = useState(0);
+    const [selected, setSelected] = useState(0);
 
     useEffect(() => {
         (
@@ -31,6 +32,20 @@ const Orders = () => {
         }
     }
 
+    const hide = {
+        maxHeight: 0,
+        transition: '400ms ease-in'
+    }
+
+    const show = {
+        maxHeight: "150px",
+        transition: '400ms ease-out'
+    }
+
+    const select = (id: number) => {
+        setSelected(selected  !== id ? id : 0)
+    }
+
     return (
         <Wrapper>
             <div className="w-full shadow-md shadow-gray-300">
@@ -39,7 +54,7 @@ const Orders = () => {
         </Link>
             <table className="w-full border-collapse border border-slate-200 mt-4">
                 <thead className="bg-gray-200">
-                    <tr className="bg-gray-200 text-xs font-bold tracking-wide text-left text-black uppercase border-b-2 border-b-black dark:border-gray-800 dark:text-gray-800 dark:bg-gray-800">
+                    <tr className="bg-gray-200 text-xs font-bold tracking-wide text-left text-black uppercase border-b border-b-black dark:border-gray-800 dark:text-gray-800 dark:bg-gray-800">
                         <th className="px-4 py-3">#</th>
                         <th className="px-4 py-3">FULL NAME</th>
                         <th className="px-4 py-3">EMAIL ADDRESS</th>
@@ -48,32 +63,36 @@ const Orders = () => {
                         <th className="px-4 py-3">ACTIONS</th>
                     </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-x dark:divide-gray-700 dark:bg-gray-800">
+                <tbody className="bg-white">
 
                     {orders.map((order: Order) => {
                         return (
                             <>
-                                <tr key={order.id} className="text-gray-700 bg-gray-100 dark:text-gray-400 border">
+                                <tr key={order.id} className="text-gray-700 bg-gray-10 dark:text-gray-400 border-b">
                                     <td className="px-4 py-3 text-sm border-b">
-                                        {order.id}
+                                        <a href="#"
+                                        onClick={() => select(order.id) }
+                                        >
+                                            <i className="fa fa-list"></i> {order.id}
+                                        </a>
                                     </td>
 
-                                    <td className="px-4 py-3 text-sm border-b">
+                                    <td className="px-4 py-2 text-sm border-b">
                                         {order.name}
                                     </td>
 
-                                    <td className="px-4 py-3 text-sm border-b">
+                                    <td className="px-4 py-2 text-sm border-b">
                                         {order.email}
                                     </td>
 
-                                    <td className="px-4 py-3 text-sm border-b">
+                                    <td className="px-4 py-2 text-sm border-b">
                                         {order.created_at}
                                     </td>
 
-                                    <td className="px-4 py-3 text-sm border-b">
+                                    <td className="px-4 py-2 text-sm border-b">
                                         {order.total}
                                     </td>
-                                    <td className="px-4 py-3 text-sm border-b">
+                                    <td className="px-4 py-2 text-sm border-b">
                                         <Link to={`/orders/${order.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded">
                                                 <i className="fa fa-eye text-gray-700 text-xs"></i> View
                                         </Link>
@@ -92,9 +111,9 @@ const Orders = () => {
 
                                 <tr>
                                     <td colSpan={6}>
-                                        <div className="px-8 py-4">
-                                            <table className="w-full p-8 border-collapse  border-slate-200 mt mb-2">
-                                                <thead>
+                                        <div className="px-8 overflow-hidden" style={selected === order.id ? show : hide}>
+                                            <table className="w-full  bg-gray-100  border-b p-8 mt mb-4 mt-2">
+                                                <thead  className="bg-gray-200">
                                                     <tr className="text-gray-700 text-left dark:text-gray-400 ">
                                                         <th className="px-4 py-3 border-b">#</th>
                                                         <th className="px-4 py-3 border-b ">Product Name</th>
