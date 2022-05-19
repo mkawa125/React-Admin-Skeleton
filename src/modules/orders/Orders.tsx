@@ -1,4 +1,5 @@
 import axios from "axios";
+import { type } from "os";
 import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Paginator from "../../components/Paginator";
@@ -46,12 +47,29 @@ const Orders = () => {
         setSelected(selected  !== id ? id : 0)
     }
 
+    const handleExport = async() => {
+        const {data} = await axios.post('orders/export', {}, {responseType: 'blob'});
+        const blod = new Blob([data], {type: 'text/csv'});
+        const url =   window.URL.createObjectURL(data);
+        const link = document.createElement('a')
+        link.href = url;
+        link.download = "Orders.csv";
+        link.click();
+    }
+
     return (
         <Wrapper>
             <div className="w-full shadow-md shadow-gray-300">
-        <Link to='/orders/create' className="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
-            <i className="fa fa-plus"></i> Create New Order
-        </Link>
+            <Link to='/orders/create' className="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
+                <i className="fa fa-plus"></i> Create New Order
+            </Link>
+
+            <a href="#" className="bg-transparent hover:bg-gray-200 text-black hover:text-black py-2 px-4 ml-2 border border-gray-400 rounded"
+                onClick={() => handleExport()}
+                >
+                    <i className="fa fa-file text-gray-700 text-xs"></i> Export
+            </a>
+
             <table className="w-full border-collapse border border-slate-200 mt-4">
                 <thead className="bg-gray-200">
                     <tr className="bg-gray-200 text-xs font-bold tracking-wide text-left text-black uppercase border-b border-b-black dark:border-gray-800 dark:text-gray-800 dark:bg-gray-800">
