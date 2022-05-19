@@ -70,7 +70,6 @@ const Users = () => {
 
                                     <td className="px-4 py-3 text-sm border">
                                         {user.role.name}
-                                        
                                     </td>
                                     <td className="px-4 py-3 text-sm border w-80">
                                         <Link to={`/users/${user.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded">
