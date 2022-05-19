@@ -34,7 +34,7 @@ const Users = () => {
         <Wrapper>
             <div className="w-full shadow-md shadow-gray-300">
             <Link to='/users/create' className="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
-                Add New User
+                <i className="fa fa-plus"></i> Add New User
             </Link>
                 <table className="w-full border-collapse border border-slate-200 mt-4">
                     <thead className="bg-gray-200">
@@ -71,15 +71,20 @@ const Users = () => {
                                     <td className="px-4 py-3 text-sm border">
                                         {user.role.name}
                                     </td>
-                                    <td className="px-4 py-3 text-sm border">
+                                    <td className="px-4 py-3 text-sm border w-80">
+                                        <Link to={`/users/${user.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded">
+                                                <i className="fa fa-eye text-gray-700 text-xs"></i> View
+                                        </Link>
+                                        
+                                        <Link to={`/users/${user.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded">
+                                                <i className="fa fa-edit text-gray-700 text-xs"></i> Edit
+                                        </Link>
                                         <a href="#" className="bg-transparent hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded"
                                             onClick={() => deleteUser(user.id)}
                                             >
-                                                Delete
+                                                <i className="fa fa-trash-alt text-gray-700 text-xs"></i> Delete
                                         </a>
-                                        <Link to={`/users/${user.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded">
-                                                Edit
-                                        </Link>
+                                        
                                     </td>
                                 </tr>
                             )

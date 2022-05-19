@@ -54,14 +54,20 @@ const Roles = () => {
 
                                     
                                     <td className="px-4 py-3 text-sm border">
+                                        <Link to={`/roles/${role.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded">
+                                                <i className="fa fa-eye text-gray-700 text-xs"></i> View
+                                        </Link>
+
+                                        <Link to={`/roles/${role.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded">
+                                                <i className="fa fa-edit text-gray-700 text-xs"></i> Edit
+                                        </Link>
+
                                         <a href="#" className="bg-transparent hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded"
                                             onClick={() => deleteRole(role.id)}
                                             >
-                                                Delete
+                                                <i className="fa fa-trash-alt text-gray-700 text-xs"></i> Delete
                                         </a>
-                                        <Link to={`/roles/${role.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded">
-                                                Edit
-                                        </Link>
+                                        
                                     </td>
                                 </tr>
                             )
