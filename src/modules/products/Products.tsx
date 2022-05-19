@@ -43,7 +43,7 @@ const Products = () => {
         <Wrapper>
             <div className="w-full shadow-md shadow-gray-300">
             <Link to='/products/create' className="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-300 rounded shadow">
-                Add New Product
+                <i className="fa fa-plus"></i> Add New Product
             </Link>
             <table className="w-full border-collapse border border-slate-200 mt-4">
                     <thead className="bg-gray-200">

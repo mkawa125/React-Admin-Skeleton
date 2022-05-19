@@ -29,13 +29,15 @@ const Roles = () => {
         <Wrapper>
             <div className="w-full shadow-md shadow-gray-300">
             <Link to='/roles/create' className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-                Add New Role
+                <i className="fa fa-plus"></i> Add New Role
             </Link>
                 <table className="w-full border-collapse border border-slate-200 mt-4">
                     <thead className="bg-gray-200">
                         <tr className="bg-gray-200 text-xs font-bold tracking-wide text-left text-black uppercase border-b-2 border-b-black dark:border-gray-800 dark:text-gray-800 dark:bg-gray-800">
                             <th className="px-4 py-3 border">#</th>
                             <th className="px-4 py-3 border">NAME</th>
+                            <th className="px-4 py-3 border">DATE CREATED</th>
+                            <th className="px-4 py-3 border">UUID</th>
                             <th className="px-4 py-3 border">ACTIONS</th>
                         </tr>
                     </thead>
@@ -51,9 +53,16 @@ const Roles = () => {
                                     <td className="px-4 py-3 text-sm border">
                                         {role.name}
                                     </td>
+                                    <td className="px-4 py-3 text-sm border">
+                                        {role.created_at}
+                                    </td>
+
+                                    <td className="px-4 py-3 text-sm border">
+                                        {role.uuid}
+                                    </td>
 
                                     
-                                    <td className="px-4 py-3 text-sm border">
+                                    <td className="px-4 py-3 text-sm border w-80">
                                         <Link to={`/roles/${role.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded">
                                                 <i className="fa fa-eye text-gray-700 text-xs"></i> View
                                         </Link>
