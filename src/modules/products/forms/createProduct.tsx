@@ -1,5 +1,6 @@
 import axios from "axios";
 import {SyntheticEvent, useState } from "react";
+import ImageUpload from "../../../components/ImageUpload";
 import Wrapper from "../../../components/Wrapper";
 
 
@@ -8,7 +9,7 @@ const CreateProduct  = () => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice]= useState('');
-    const [image, setImage] = useState('https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80');
+    const [image, setImage] = useState('');
     const [redirect, setRedirect] = useState(false);
     
 
@@ -57,6 +58,19 @@ const CreateProduct  = () => {
                         placeholder="Price"
                         />
                     </label>
+
+                    <label className="block mt-4">
+                        <span className="text-gray-700 dark:text-gray-400">Image</span>
+                    </label>
+                        <input
+                            className="block mb-2 w-full py-2 px-2 border rounded mt-1 focus:outline-none  form-input"
+                            value={image}
+                            onChange={e => setImage(e.target.value)}
+                            required
+                        />
+                        <ImageUpload uploaded={setImage}></ImageUpload>
+                    
+
 
                     <label className="block mt-4">
                         <span className="text-gray-700 dark:text-gray-400">Description</span>
