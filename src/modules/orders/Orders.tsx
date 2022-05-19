@@ -1,119 +1,101 @@
-import React, { Component } from "react";
+import axios from "axios";
+import React, { Component, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Paginator from "../../components/Paginator";
 import Wrapper from "../../components/Wrapper";
+import { Order } from "./orderModel";
 
-class Order extends Component {
-    render() { 
-        return (
-            <Wrapper>
-                <div className="table w-full p-10 shadow-md bg-white shadow-gray-300">
-                    <table className="w-full border">
-                        <thead>
-                            <tr className="bg-gray-50 border-b">
-                                
-                                <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                                    <div className="flex items-center justify-center">
-                                        ID
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                                        </svg>
-                                    </div>
-                                </th>
-                                <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                                    <div className="flex items-center justify-center">
-                                        Name
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                                        </svg>
-                                    </div>
-                                </th>
-                                <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                                    <div className="flex items-center justify-center">
-                                        Email
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                                        </svg>
-                                    </div>
-                                </th>
-                                <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                                    <div className="flex items-center justify-center">
-                                        Address
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                                        </svg>
-                                    </div>
-                                </th>
-                                <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                                    <div className="flex items-center justify-center">
-                                        Action
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                                        </svg>
-                                    </div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
-                                
-                                <td className="p-2 border-r">1</td>
-                                <td className="p-2 border-r">John Doe</td>
-                                <td className="p-2 border-r">john@gmail.com</td>
-                                <td className="p-2 border-r">Sydney, Australia</td>
-                                <td>
-                                    <a href="#" className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
-                                    <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
-                                </td>
-                            </tr>
-                            <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
-                                
-                                <td className="p-2 border-r">2</td>
-                                <td className="p-2 border-r">Adam Smith</td>
-                                <td className="p-2 border-r">adam@gmail.com</td>
-                                <td className="p-2 border-r">Sydney, Australia</td>
-                                <td>
-                                    <a href="#" className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
-                                    <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
-                                </td>
-                            </tr>
-                            <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
-                            
-                                <td className="p-2 border-r">3</td>
-                                <td className="p-2 border-r">Jean Doe</td>
-                                <td className="p-2 border-r">jean@gmail.com</td>
-                                <td className="p-2 border-r">Sydney, Australia</td>
-                                <td>
-                                    <a href="#" className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
-                                    <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
-                                </td>
-                            </tr>
-                            <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
-                                
-                                <td className="p-2 border-r">3</td>
-                                <td className="p-2 border-r">Jean Doe</td>
-                                <td className="p-2 border-r">jean@gmail.com</td>
-                                <td className="p-2 border-r">Sydney, Australia</td>
-                                <td>
-                                    <a href="#" className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
-                                    <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
-                                </td>
-                            </tr>
-                            <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
-                                
-                                <td className="p-2 border-r">3</td>
-                                <td className="p-2 border-r">Jean Doe</td>
-                                <td className="p-2 border-r">jean@gmail.com</td>
-                                <td className="p-2 border-r">Sydney, Australia</td>
-                                <td>
-                                    <a href="#" className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
-                                    <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </Wrapper>
-         );
+const Orders = () => {
+
+    const [orders, setOrders] = useState([]);
+    const [page, setPage] = useState(1);
+    const [lastPage, setLastPage] = useState(0);
+
+    useEffect(() => {
+        (
+            async () => {
+                const {data} = await axios.get(`orders?page=${page}`);
+                setOrders(data.orders)
+                setLastPage(data.metadata.last_page);
+                
+            }
+        )()
+    }, [page]);
+
+    const deleteOrder =async (id:number) => {
+        if (window.confirm("Are you sure you want to delete this order?")) {
+            await axios.delete(`orders/${id}`);
+
+            setOrders(orders.filter((u: Order) => u.id !== id))
+        }
     }
+
+    return (
+        <Wrapper>
+            <div className="w-full shadow-md shadow-gray-300">
+        <Link to='/orders/create' className="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
+            <i className="fa fa-plus"></i> Create New Order
+        </Link>
+            <table className="w-full border-collapse border border-slate-200 mt-4">
+                <thead className="bg-gray-200">
+                    <tr className="bg-gray-200 text-xs font-bold tracking-wide text-left text-black uppercase border-b-2 border-b-black dark:border-gray-800 dark:text-gray-800 dark:bg-gray-800">
+                        <th className="px-4 py-3 border">#</th>
+                        <th className="px-4 py-3 border">FULL NAME</th>
+                        <th className="px-4 py-3 border">EMAIL ADDRESS</th>
+                        <th className="px-4 py-3 border">DATE CREATED</th>
+                        <th className="px-4 py-3 border">TOTAL</th>
+                        <th className="px-4 py-3 border">ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-x dark:divide-gray-700 dark:bg-gray-800">
+
+                    {orders.map((order: Order) => {
+                        return (
+                            <tr key={order.id} className="text-gray-700 dark:text-gray-400 border">
+                                <td className="px-4 py-3 text-sm border">
+                                    {order.id}
+                                </td>
+
+                                <td className="px-4 py-3 text-sm border">
+                                    {order.name}
+                                </td>
+
+                                <td className="px-4 py-3 text-sm border">
+                                    {order.email}
+                                </td>
+
+                                <td className="px-4 py-3 text-sm border">
+                                    {order.created_at}
+                                </td>
+
+                                <td className="px-4 py-3 text-sm border">
+                                    {order.total}
+                                </td>
+                                <td className="px-4 py-3 text-sm border w-80">
+                                    <Link to={`/orders/${order.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded">
+                                            <i className="fa fa-eye text-gray-700 text-xs"></i> View
+                                    </Link>
+                                    
+                                    <Link to={`/orders/${order.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded">
+                                            <i className="fa fa-edit text-gray-700 text-xs"></i> Edit
+                                    </Link>
+                                    <a href="#" className="bg-transparent hover:bg-gray-200 text-black hover:text-black py-2 px-4 border border-gray-400 rounded"
+                                        onClick={() => deleteOrder(order.id)}
+                                        >
+                                            <i className="fa fa-trash-alt text-gray-700 text-xs"></i> Delete
+                                    </a>
+                                    
+                                </td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </table>
+        </div>
+
+        <Paginator page={page} lastPage={lastPage} pageChanged={setPage}/>
+        </Wrapper>
+        );
 }
  
-export default Order;
+export default Orders;
