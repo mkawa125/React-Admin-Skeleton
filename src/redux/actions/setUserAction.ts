@@ -1,0 +1,8 @@
+import { User } from "../../modules/users/userModel";
+
+export const setUser = (user: User) => {
+    return {
+        type: 'SET_USER',
+        user
+    }
+}
