@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, {useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {User} from "../modules/users/userModel";
 
 const Nav = () => {
@@ -50,9 +51,10 @@ const Nav = () => {
 
 
                                 
-                                <li>
-                                    
-                                    {user.name} 
+                                <li className="transition-colors duration-150 hover:text-blue-700 dark:hover:text-gray-200">
+                                    <Link to={'/profile'}>
+                                        {user.name}
+                                    </Link> 
                                 </li>
 
                                 <li className="relative">

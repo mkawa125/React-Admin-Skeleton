@@ -17,6 +17,7 @@ import CreateRole from './modules/roles_and_permissions/forms/createRole';
 import EditRole from './modules/roles_and_permissions/forms/editRole';
 import CreateProduct from './modules/products/forms/createProduct';
 import EditProduct from './modules/products/forms/editProduct';
+import Profile from './modules/users/Profile';
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                 <Routes>
                     <Route path={"/"} element={<Dashboard/>} />
                     <Route path="users"  element={<User/>} />
+                    <Route path="profile"  element={<Profile/>} />
 
                     <Route path="roles"  element={<Roles/>} />
                     <Route path="roles/create"  element={<CreateRole/>} />
