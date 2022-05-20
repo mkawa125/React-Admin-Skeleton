@@ -1,31 +1,10 @@
-import axios from "axios";
-import React, {useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import {User} from "../modules/users/userModel";
+import { connect } from "react-redux";
+import { User } from "../modules/users/userModel";
 
-const Nav = () => {
-
-    const [user, setUser] = useState(new User());
-
-    useEffect(() => {
-        (
-           async () => {
-               const {data} = await axios.get('user');               
-               setUser(new User(
-                   data.user.id, 
-                   data.user.first_name, 
-                   data.user.last_name, 
-                   data.user.email,
-                   data.user.uuid,
-                   data.user.role,
-               ));
-
-
-           }
-        )();
-    }, []);
+const Nav = (props: {user: User}) => {
         return (
-           
             <header className="shadow-md">
             <nav aria-label="menu nav" className="bg-gray-100 pt-2 md:pt-2 pb-4 px-4 mt-0 h-auto fixed w-full left-0 top-0 shadow-md">
                 <div className="flex items-center">
@@ -53,7 +32,7 @@ const Nav = () => {
                                 
                                 <li className="transition-colors duration-150 hover:text-blue-700 dark:hover:text-gray-200">
                                     <Link to={'/profile'}>
-                                        {user.name}
+                                        {props.user.name}
                                     </Link> 
                                 </li>
 
@@ -155,4 +134,10 @@ const Nav = () => {
     )
 }
 
-export default Nav;
+export default connect(
+    (state: {user: User}) => {
+        return {
+            user: state.user
+        }
+    }
+)(Nav);

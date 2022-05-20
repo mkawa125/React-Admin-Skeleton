@@ -1,12 +1,15 @@
 import axios from "axios";
-import React, { Component, SyntheticEvent, useEffect, useState } from "react";
+import React, { Component, Dispatch, SyntheticEvent, useEffect, useState } from "react";
 import  Redirect from "react-router-dom";
 import { Link } from "react-router-dom";
 import useHistory  from "react-router-dom";
 import Wrapper from "../../components/Wrapper";
+import { connect } from "react-redux";
+import { User } from "./userModel";
+import { setUser } from "../../redux/actions/setUserAction";
 
 
-const Profile  = () => {
+const Profile  = (props: {user: User, setUser: (user: User) => void}) => {
 
     const [first_name, setFirstName] = useState('');
     const [last_name, setLastName] = useState('');
@@ -16,29 +19,34 @@ const Profile  = () => {
     const [redirect, setRedirect] = useState(false);
 
     useEffect(() => {
-        (
-            async () => {
-                const {data} = await axios.get(`user`);
-                setFirstName(data.user.first_name)
-                setLastName(data.user.last_name)
-                setEmail(data.user.email)
-                setFirstName(data.user.first_name)
-                console.log("User", data.user);
+        setFirstName(props.user.first_name)
+        setLastName(props.user.last_name)
+        setEmail(props.user.email)
+        setFirstName(props.user.first_name)
                 
-            }
-        )()
-    }, []);
+    }, [props.user]);
     
 
     const infoSubmit = async (e: SyntheticEvent) => {
         
         e.preventDefault();
 
-        await axios.put("users/info", {
+        const {data} =  await axios.put("users/info", {
             first_name,
             last_name,
             email
         });
+
+        props.setUser(
+            new User(
+                data.user.id, 
+                data.user.first_name, 
+                data.user.last_name, 
+                data.user.email,
+                data.user.uuid,
+                data.user.role,
+               )
+        );
     }
 
     const passwordSubmit = async (e: SyntheticEvent) => {
@@ -147,4 +155,15 @@ const Profile  = () => {
     )
 };
 
-export default Profile
+export default connect(
+    (state: {user: User}) => {
+        return {
+            user: state.user
+        }
+    },
+    (dispatch: Dispatch<any>) => {
+        return {
+            setUser: (user: User) => dispatch(setUser(user))
+        }
+    }
+)(Profile)
