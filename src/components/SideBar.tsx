@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 
 const SideBar = () => {
 
+    const activeClasses = "inline-flex py-3 border-l-4 border-blue-800  px-6 bg-gray-400 items-center w-full text-sm transition-colors duration-150 text-blue-900 hover:text-blue-700 dark:hover:text-gray-200";
+    const inActiveClasses = "inline-flex py-3 px-6 items-center w-full text-sm transition-colors duration-150 hover:text-blue-700 dark:hover:text-gray-200";
+
     const logout = async () => {
         await axios.post("logout", {});
     }
@@ -16,40 +19,50 @@ const SideBar = () => {
                     </Link>
 
                     <ul className="mt-6">
-                        <li className="relative px-6 py-3 bg-gray-400">
-                            <span className="absolute inset-y-0 left-0 w-1 bg-blue-900 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>
-                            <NavLink className="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-blue-700 dark:hover:text-gray-200 dark:text-gray-100" to={'/'}>
+                        <li className="relative">
+                            <NavLink className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)} to={'/'}>
                             <i className="fa fa-home"></i>
                                 <span className="ml-4">Dashboard</span>
                             </NavLink>
+
+                            
                         </li>
+
+                            
                     </ul>
 
 
                     <ul>
-                        <li className="relative px-6 py-3 hover:bg-gray-300">
-                            <NavLink className="inline-flex items-center w-full text-sm transition-colors duration-150 hover:text-blue-700 dark:hover:text-gray-200" to={'/users'}>
+                        {/* <li className="relative px-0 py-0 mt-4 bg-gray-500">
+                            <NavLink className="inline-flex bg-red-500 items-center w-full text-sm transition-colors duration-150 hover:text-blue-700 dark:hover:text-gray-200" to={'/users'}>
                                 <i className="fa fa-users"></i> 
                                 <span className="ml-4">Users Management</span>
                             </NavLink>
-                        </li>
+                        </li> */}
 
-                        <li className="relative px-6 py-3">
-                            <NavLink to={"/roles"} className="inline-flex items-center w-full text-sm  transition-colors duration-150 hover:text-blue-700 dark:hover:text-gray-200">
+                        <li className="relative">
+                                <NavLink className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)} to="/users" >
+                                    <i className="fa fa-users"></i> 
+                                    <span className="ml-4">Users Management</span>
+                                </NavLink>
+                            </li>
+
+                        <li className="relative">
+                            <NavLink to={"/roles"} className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)}>
                                 <i className="fa fa-user-secret"></i>
                                 <span className="ml-4">Roles & Permissions</span>
                             </NavLink>
                         </li>
                         
-                        <li className="relative px-6 py-3">
-                            <NavLink to={'/products'} className="inline-flex items-center w-full text-sm transition-colors duration-150 hover:text-blue-700 dark:hover:text-gray-200">
+                        <li className="relative">
+                            <NavLink to={'/products'} className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)}>
                             <i className="fa fa-list"></i>
                                 <span className="ml-4">Products </span>
                             </NavLink>
                         </li>
 
-                        <li className="relative px-6 py-3">
-                            <NavLink to={"/orders"} className="inline-flex items-center w-full text-sm transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                        <li className="relative">
+                            <NavLink to={"/orders"} className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)}>
                                <i className="fa fa-shopping-cart"></i>
                                 <span className="ml-4">Orders</span>
                             </NavLink>
