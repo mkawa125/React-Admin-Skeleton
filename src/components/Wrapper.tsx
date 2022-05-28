@@ -39,7 +39,7 @@ const Wrapper  = (props: any) => {
             <>
                <SideNavBar/>
                 <Nav/>
-                <section className='pt-24 bg-gray-100 w-full p-20'>
+                <section className='pt-24 bg-gray-100 w-full p-20 overflow-y-auto'>
                     {props.children}
                 </section>
             </>
