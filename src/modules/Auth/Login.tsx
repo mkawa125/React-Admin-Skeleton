@@ -10,6 +10,8 @@ const Login  = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
     
 
     const submit = async (e: SyntheticEvent) => {
@@ -19,10 +21,14 @@ const Login  = () => {
         const response = await axios.post("login", {
             email,
             password
-        });
-
-        window.location.href = '/';
-        setRedirect(true);
+        }).then(response =>  {
+            setError(false)
+            window.location.href = '/';
+            setRedirect(true);
+        }).catch(errorResponse => {
+            setError(true);
+            setErrorMessage("Invalid login credentials !")
+        })
     }
     return (
         <div className="items-center mx-auto w-full pt-20 p-6 bg-gray-200 dark:bg-gray-900">
@@ -42,6 +48,7 @@ const Login  = () => {
                                 required
                                 placeholder="Enter username or email"
                                 />
+                                {error !== false && <div className="text text-red-500 mt-2"><strong>{errorMessage}</strong></div>}
                             </label>
                             <label className="block mt-4 text-sm">
                                 <span className="text-gray-700 dark:text-gray-400">Password</span>
