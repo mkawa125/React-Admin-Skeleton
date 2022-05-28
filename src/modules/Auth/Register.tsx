@@ -30,7 +30,7 @@ class Register extends Component{
             <div className="max-w-4xl mx-auto w-1/4 mt-10 pb-5 overflow-hidden bg-white  rounded-md shadow-md dark:bg-gray-800">
                 <div className="items-center justify-center p-6 sm:p-12 md:w-full">
                     <div className="w-full">
-                        <h1 className="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
+                        <h1 className="mb-4 text-xl font-semibold center text-center border-b-8 border-gray-500 p-4 mb-8 font-bold text-gray-700 dark:text-gray-200">
                             Create Your Account
                         </h1>
 
@@ -88,7 +88,7 @@ class Register extends Component{
                                 />
                             </label>
 
-                            <button className="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                            <button className="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-900 border border-transparent rounded active:bg-purple-600 hover:bg-blue-800 focus:outline-none"
                                 type="submit">
                                 Create Account
                             </button>
@@ -96,7 +96,7 @@ class Register extends Component{
                             <hr className="my-8" />
 
                             <p className="mt-0">
-                                <Link to={'/login'} className="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline">
+                                <Link to={'/login'} className="text-sm font-medium text-blue-800 dark:text-purple-400 hover:underline">
                                     Already have an account? Login
                                 </Link>
                             </p>
