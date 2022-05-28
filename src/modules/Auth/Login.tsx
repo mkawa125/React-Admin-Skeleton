@@ -14,6 +14,8 @@ const Login  = () => {
     const [redirect, setRedirect] = useState(false);
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [errorClasses, setErrorClasses] = useState('');
+    const classes = 'text-sm border dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray rounded p-2'
     
 
     const submit = async (e: SyntheticEvent) => {
@@ -29,6 +31,7 @@ const Login  = () => {
             setRedirect(true);
         }).catch(errorResponse => {
             setError(true);
+            setErrorClasses(" border-red-700 text-red-700")
             setErrorMessage("Invalid login credentials !")
         })
     }
@@ -47,19 +50,22 @@ const Login  = () => {
                             <label className="block text-sm">
                                 <span className="text-gray-700 dark:text-gray-400">Username or Email</span>
                                 <input
-                                className="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                type="email" 
+                                className={`block w-full mt-1  ${classes} ${errorClasses !== null && errorClasses}`}
+                                type="email"
+                                onKeyDown={e => (setErrorClasses(""), setError(false))}
                                 onChange={e => setEmail(e.target.value)}
                                 required
                                 placeholder="Enter username or email"
                                 />
-                                {error !== false && <div className="text text-red-500 mt-2"><strong>{errorMessage}</strong></div>}
+                                {error !== false && <div className="text text-red-700 mt-2"><strong>{errorMessage}</strong></div>}
                             </label>
+
                             <label className="block mt-4 text-sm">
                                 <span className="text-gray-700 dark:text-gray-400">Password</span>
                                 <input
-                                className="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                className={`block w-full mt-1 ${classes} ${errorClasses !== null && errorClasses}`}
                                 placeholder="Enter password"
+                                onKeyDown={e => (setErrorClasses(""), setError(false))}
                                 onChange={e => setPassword(e.target.value)}
                                 required
                                 type="password"
