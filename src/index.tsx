@@ -8,15 +8,18 @@ import axios  from "axios";
 import { configureStore } from './redux/configureStore';
 import { Provider } from 'react-redux';
 
+import * as dotenv from "dotenv";
+
 axios.defaults.baseURL = "http://localhost:5000/api/";
 axios.defaults.withCredentials = true;
-
 const store = configureStore();
+console.log("ENV DATA", process.env );
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-        <App />
+        <App/>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

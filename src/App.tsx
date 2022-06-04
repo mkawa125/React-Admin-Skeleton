@@ -18,30 +18,35 @@ import EditRole from './modules/roles_and_permissions/forms/editRole';
 import CreateProduct from './modules/products/forms/createProduct';
 import EditProduct from './modules/products/forms/editProduct';
 import Profile from './modules/users/Profile';
+import AuthenticatedRoutes from './modules/Auth/protectedRoutes';
 
 function App() {
+
     return (
         <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
             <BrowserRouter>
                 <Routes>
-                    <Route path={"/"} element={<Dashboard/>} />
-                    <Route path="users"  element={<User/>} />
-                    <Route path="profile"  element={<Profile/>} />
+                    {/* <Route element={<AuthenticatedRoutes/>}> */}
+                        <Route path={"/"} element={<Dashboard/>} />
+                        <Route path="users"  element={<User/>} />
+                        <Route path="profile"  element={<Profile/>} />
 
-                    <Route path="roles"  element={<Roles/>} />
-                    <Route path="roles/create"  element={<CreateRole/>} />
-                    <Route path="roles/:id/edit"  element={<EditRole/>} />
+                        <Route path="roles"  element={<Roles/>} />
+                        <Route path="roles/create"  element={<CreateRole/>} />
+                        <Route path="roles/:id/edit"  element={<EditRole/>} />
 
-                    <Route path="orders" element={<Order/>} />
-                    <Route path="register" element={<Register/>} />
+                        <Route path="orders" element={<Order/>} />
+                        <Route path="register" element={<Register/>} />
+
+                        <Route path="products" element={<Products/>} />
+                        <Route path="products/create" element={<CreateProduct/>} />
+                        <Route path="products/:id/edit" element={<EditProduct/>} />
+
+                        <Route path="users/create" element={<CreateUser/>} />
+                        <Route path="users/:id/edit" element={<EditUser/>} />
+                    {/* </Route> */}
+                    
                     <Route path="login" element={<Login/>} />
-
-                    <Route path="products" element={<Products/>} />
-                    <Route path="products/create" element={<CreateProduct/>} />
-                    <Route path="products/:id/edit" element={<EditProduct/>} />
-
-                    <Route path="users/create" element={<CreateUser/>} />
-                    <Route path="users/:id/edit" element={<EditUser/>} />
                 </Routes>
             </BrowserRouter>
         </div>

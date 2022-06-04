@@ -1,9 +1,14 @@
-import React, { PureComponent, useEffect } from 'react';
+import React, { PureComponent, useEffect, useState } from 'react';
 import Wrapper from './Wrapper';
 import * as c3 from "c3";
 import axios from 'axios';
 
 const Dashboard  = () => {
+    const [total_users, setTotalUsers] = useState('');
+    const [total_orders, setTotalOrders] = useState('');
+    const [total_products, setTotalProducts] = useState('');
+    const [total_sales, setTotalSales] = useState('');
+
     useEffect(() => {
         (
            async () => {
@@ -31,6 +36,10 @@ const Dashboard  = () => {
             });
 
             const {data} = await axios.get('orders/report');
+            setTotalUsers(data.totalUsers);
+            setTotalOrders(data.totalOrders);
+            setTotalProducts(data.totalProducts);
+            setTotalSales(data.totalSales);
 
             chart.load({
                 columns: [
@@ -55,10 +64,10 @@ const Dashboard  = () => {
                             </div>
                             <div>
                                 <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    Total clients
+                                    Total Users
                                 </p>
                                 <p className="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    6389
+                                    {total_users}
                                 </p>
                             </div>
                         </div>
@@ -74,10 +83,10 @@ const Dashboard  = () => {
                             </div>
                             <div>
                                 <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    Account balance
+                                    Total Sales
                                 </p>
                                 <p className="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    $ 46,760.89
+                                    $ { total_sales }
                                 </p>
                             </div>
                         </div>
@@ -93,10 +102,10 @@ const Dashboard  = () => {
                             </div>
                             <div>
                                 <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    New sales
+                                    Total Orders
                                 </p>
                                 <p className="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    376
+                                    { total_orders }
                                 </p>
                             </div>
                         </div>
@@ -112,10 +121,10 @@ const Dashboard  = () => {
                             </div>
                             <div>
                                 <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    Pending contacts
+                                    Total Products
                                 </p>
                                 <p className="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    35
+                                    { total_products }
                                 </p>
                             </div>
                         </div>
