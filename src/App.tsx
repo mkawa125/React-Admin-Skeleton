@@ -19,6 +19,8 @@ import CreateProduct from './modules/products/forms/createProduct';
 import EditProduct from './modules/products/forms/editProduct';
 import Profile from './modules/users/Profile';
 import AuthenticatedRoutes from './modules/Auth/protectedRoutes';
+import ForgetPassword from './modules/Auth/ForgetPassword';
+import ResetPassword from './modules/Auth/ResetPassword';
 
 function App() {
 
@@ -47,6 +49,8 @@ function App() {
                     {/* </Route> */}
                     
                     <Route path="login" element={<Login/>} />
+                    <Route path="forget-password" element={<ForgetPassword/>} />
+                    <Route path="reset-password" element={<ResetPassword/>} />
                 </Routes>
             </BrowserRouter>
         </div>

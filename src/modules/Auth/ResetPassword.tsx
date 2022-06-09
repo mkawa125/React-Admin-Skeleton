@@ -7,7 +7,7 @@ import logo from '../../../public/assets/img/logo192.png';
 
 
 
-const Login  = () => {
+const ResetPassword  = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -47,18 +47,6 @@ const Login  = () => {
                             Login to your account
                         </h1>
                         <form onSubmit={submit}>
-                            <label className="block text-sm">
-                                <span className="text-gray-700 dark:text-gray-400">Username or Email</span>
-                                <input
-                                className={`block w-full mt-1  ${classes} ${errorClasses !== null && errorClasses}`}
-                                type="email"
-                                onKeyDown={e => (setErrorClasses(""), setError(false))}
-                                onChange={e => setEmail(e.target.value)}
-                                required
-                                placeholder="Enter username or email"
-                                />
-                                {error !== false && <div className="text text-red-700 mt-2"><strong>{errorMessage}</strong></div>}
-                            </label>
 
                             <label className="block mt-4 text-sm">
                                 <span className="text-gray-700 dark:text-gray-400">Password</span>
@@ -72,7 +60,7 @@ const Login  = () => {
                                 />
                             </label>
                             <p className="mt-4">
-                                <Link to={'/forget-password'} className="text-sm font-medium text-blue-600 dark:text-purple-400 hover:underline">
+                                <Link to={'/register'} className="text-sm font-medium text-blue-600 dark:text-purple-400 hover:underline">
                                     Forget Password?
                                 </Link>
                             </p>
@@ -94,4 +82,4 @@ const Login  = () => {
     )
 };
 
-export default Login
+export default ResetPassword
