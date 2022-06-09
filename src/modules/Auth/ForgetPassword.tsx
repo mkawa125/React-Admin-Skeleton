@@ -61,11 +61,11 @@ const ForgetPassword  = () => {
                                 type="submit">
                                 Submit
                             </button>
-                            <p className="mt-4">
+                            {/* <p className="mt-4">
                                 <Link to={'/register'} className="text-sm font-medium text-blue-600 dark:text-purple-400 hover:underline">
                                     Return to login
                                 </Link>
-                            </p>
+                            </p> */}
                         </form>
                     </div>
                 </div>
