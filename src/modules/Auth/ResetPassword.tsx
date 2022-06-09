@@ -89,6 +89,16 @@ const ResetPassword  = () => {
                                     type="password"
                                     />
                                 </label>
+                                {error !== false && 
+
+                                    <p className="mt-4">
+                                        <Link to={'/forget-password'} className="text-sm font-medium text-blue-600 dark:text-purple-400 hover:underline">
+                                            Resend New Token
+                                        </Link>
+                                    </p>                                
+                                }
+
+                                
     
                                 <button className="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-800 border border-transparent rounded active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
                                     type="submit">
