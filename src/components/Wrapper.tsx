@@ -34,7 +34,8 @@ const Wrapper  = (props: any) => {
 
     if (redirect) {
         return <Navigate to="/login"/>
-    }
+        
+    }else{
         return (
             <>
                <SideNavBar/>
@@ -44,6 +45,8 @@ const Wrapper  = (props: any) => {
                 </section>
             </>
         )
+    }
+        
 }
 
 const mapStateToProps = (state: {user: User}) => {
