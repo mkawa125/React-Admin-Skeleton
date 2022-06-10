@@ -17,23 +17,23 @@ const ResetPassword  = () => {
     const [errorClasses, setErrorClasses] = useState('');
     const classes = 'text-sm border dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray rounded p-2'
     
-    // useEffect(() => {
-    //     (
-    //        async () => {
-    //            try {
-    //                 const response = await axios.post(`users/password-reset-verify/${token}`)
-    //                 console.log(response)
-    //                 setRedirect(false)
-    //            } catch (error) {
-    //                 setRedirect(true)
-    //                 setError(true);
-    //                 setErrorClasses(" border-red-700 text-red-700")
-    //                 setErrorMessage("Password Reset failed, token is invalid !")
-    //            }
+    useEffect(() => {
+        (
+           async () => {
+               try {
+                    const response = await axios.post(`users/password-reset-verify/${token}`)
+                    console.log(response)
+                    setRedirect(false)
+               } catch (error) {
+                    setRedirect(true)
+                    setError(true);
+                    setErrorClasses(" border-red-700 text-red-700")
+                    setErrorMessage("Password reset token has expired or invalid!")
+               }
 
-    //        }
-    //     )()
-    // }, [])
+           }
+        )()
+    }, [])
 
     const submit = async (e: SyntheticEvent) => {
         
@@ -63,7 +63,10 @@ const ResetPassword  = () => {
                                 Create New Password
                             </h1>
                             <form onSubmit={submit}>
-                            {error !== false && <div className="text text-red-700 mt-2"><strong>{errorMessage}</strong></div>}
+                            {error !== false && <div className="text text-red-700 mt-2"><strong>
+                                <span><i className="fa fa-info-circle mr-2"></i> </span>
+                                 {errorMessage}</strong>
+                                 </div>}
                                 <label className="block mt-4 text-sm">
                                     <span className="text-gray-700 dark:text-gray-400">Password</span>
                                     <input
@@ -87,14 +90,14 @@ const ResetPassword  = () => {
                                     type="password"
                                     />
                                 </label>
-                                {/* {error !== false &&  */}
+                                {error !== false && 
 
                                     <p className="mt-4">
                                         <Link to={'/forget-password'} className="text-sm font-medium text-blue-600 dark:text-purple-400 hover:underline">
                                             Resend New Token
                                         </Link>
                                     </p>                                
-                                {/* } */}
+                                }
 
     
                                 <button className="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-800 border border-transparent rounded active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
