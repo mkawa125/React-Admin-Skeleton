@@ -85,10 +85,8 @@ const Products = () => {
                                 stroke: 'rgba(40, 116, 166)'
                                 }
                             })
-                        }
-
-                        }
-                        >
+                          }
+                        }>
                         
                     </LoadingOverlay>
 

@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { Component, SyntheticEvent, useEffect, useState } from "react";
 import  Redirect, { Navigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import  {useNavigate}  from 'react-router-dom';
+
 
 
 
@@ -13,6 +15,7 @@ const ResetPassword  = () => {
     const [redirect, setRedirect] = useState(false);
     const [error, setError] = useState(false);
     const {token} = useParams();
+    const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState('');
     const [errorClasses, setErrorClasses] = useState('');
     const classes = 'text-sm border dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray rounded p-2'
@@ -46,7 +49,7 @@ const ResetPassword  = () => {
         }).then(response =>  {
             setError(false)
             setRedirect(true);
-            return <Navigate to="/login"/>
+            navigate("/login");
         }).catch(errorResponse => {
             setError(true);
             setErrorClasses(" border-red-700 text-red-700")
