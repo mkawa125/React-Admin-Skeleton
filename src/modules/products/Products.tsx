@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 import Paginator from "../../components/Paginator";
 import Wrapper from "../../components/Wrapper";
 import { Product } from "./productModel";
+import LoadingOverlay from 'react-loading-overlay';
+
 
 const Products = () => {
     const [products, setProducts] = useState([]);
     const [page, setPage] = useState(1);
+    const [isActive, setIsActive] = useState(true);
     const [lastPage, setLastPage] = useState(0);
 
     useEffect(() => {
@@ -15,6 +18,7 @@ const Products = () => {
             async () => {
                 const {data} = await axios.get(`products?page=${page}`);
                 setProducts(data.products.data)
+                setIsActive(false)
                 setLastPage(data.products.meta.last_page);
             }
         )()
@@ -45,6 +49,12 @@ const Products = () => {
             <Link to='/products/create' className="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-300 rounded shadow">
                 <i className="fa fa-plus"></i> Add New Product
             </Link>
+            <div>
+
+            </div>
+
+            
+            
             <table className="w-full border-collapse border border-slate-200 mt-4">
                     <thead className="bg-gray-200">
                         <tr className="bg-gray-200 text-xs font-bold tracking-wide text-left text-black uppercase border-b-2 border-b-black dark:border-gray-800 dark:text-gray-800 dark:bg-gray-800">
@@ -58,7 +68,29 @@ const Products = () => {
                             <th className="px-4 py-3 border">ACTIONS</th>
                         </tr>
                     </thead>
+                    
                     <tbody className="bg-white divide-y divide-x dark:divide-gray-700 dark:bg-gray-800">
+                        
+                    <LoadingOverlay className="left-50 ml-1"
+                        active={isActive}
+                        spinner
+                        styles={{
+                            spinner: (base) => ({
+                                ...base,
+                                width: '90px',
+                                left: '700px',
+                                marginLeft: '-4em',
+                                marginTop: '150px',
+                                '& svg circle': {
+                                stroke: 'rgba(40, 116, 166)'
+                                }
+                            })
+                        }
+
+                        }
+                        >
+                        
+                    </LoadingOverlay>
 
                         {products.map((product: Product) => {
                             return (

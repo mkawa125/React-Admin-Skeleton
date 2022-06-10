@@ -4,6 +4,9 @@ import  Redirect from "react-router-dom";
 import { Link } from "react-router-dom";
 import useHistory  from "react-router-dom";
 import logo from '../../../public/assets/img/logo192.png';
+import {Circles, Oval, Rings, TailSpin } from  'react-loader-spinner'
+import LoadingOverlay from 'react-loading-overlay';
+
 
 
 
@@ -15,22 +18,27 @@ const Login  = () => {
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [errorClasses, setErrorClasses] = useState('');
+    const [isActive, setIsActive] = useState(false);
+
     const classes = 'text-sm border dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray rounded p-2'
     
 
     const submit = async (e: SyntheticEvent) => {
         
         e.preventDefault();
+        setIsActive(true)
 
         const response = await axios.post("login", {
             email,
             password
         }).then(response =>  {
             setError(false)
+            setIsActive(false)
             window.location.href = '/';
             setRedirect(true);
         }).catch(errorResponse => {
             setError(true);
+            setIsActive(false)
             setErrorClasses(" border-red-700 text-red-700")
             setErrorMessage("Invalid login credentials !")
         })
@@ -40,6 +48,7 @@ const Login  = () => {
             <div className="max-w-4xl mx-auto w-1/4 mt-20  overflow-hidden bg-white  rounded-md shadow-md dark:bg-gray-800">
                 <div className="items-center justify-center p-6 sm:p-12 md:w-full">
                     <div className="w-full">
+
                         <h1 className="mb-4 text-xl font-semibold center text-center  border-b-4 border-gray-00 p-4 mb-8 font-bold text-gray-700 dark:text-gray-200">
                         {/* <img className="object-cover w-16 h-16 rounded-full mx-auto"
                                         src='https://picsum.photos/id/237/200/300'
@@ -76,6 +85,16 @@ const Login  = () => {
                                     Forget Password?
                                 </Link>
                             </p>
+                            <LoadingOverlay
+                                active={isActive}
+                                spinner
+                                text='Loading your content...'
+                                >
+
+                            </LoadingOverlay>
+
+                            {/* <TailSpin color="#0000FF" height={60} width={40} /> */}
+
 
                             <button className="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-800 border border-transparent rounded active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
                                 type="submit">
