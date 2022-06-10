@@ -46,11 +46,13 @@ function App() {
 
                         <Route path="users/create" element={<CreateUser/>} />
                         <Route path="users/:id/edit" element={<EditUser/>} />
+                        <Route path="reset-password/:token/reset" element={<ResetPassword/>} />
+
                     {/* </Route> */}
                     
                     <Route path="login" element={<Login/>} />
                     <Route path="forget-password" element={<ForgetPassword/>} />
-                    <Route path="reset-password/:token/reset" element={<ResetPassword/>} />
+                    
                 </Routes>
             </BrowserRouter>
         </div>
