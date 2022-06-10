@@ -2,8 +2,6 @@ import axios from "axios";
 import React, { Component, SyntheticEvent, useEffect, useState } from "react";
 import  Redirect, { Navigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import useHistory  from "react-router-dom";
-import logo from '../../../public/assets/img/logo192.png';
 
 
 
