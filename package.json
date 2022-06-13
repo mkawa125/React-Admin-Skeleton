@@ -24,6 +24,8 @@
         "axios": "^0.26.1",
         "c3": "^0.7.20",
         "dotenv": "^16.0.1",
+        "flowbite": "^1.4.7",
+        "flowbite-react": "0.0.25",
         "react": "^18.0.0",
         "react-dom": "^18.0.0",
         "react-loader-spinner": "^5.1.5",

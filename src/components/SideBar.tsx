@@ -1,7 +1,9 @@
 import axios from "axios";
+import { Sidebar } from "flowbite-react";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 
 const SideBar = () => {
 
@@ -12,106 +14,143 @@ const SideBar = () => {
         await axios.post("logout", {});
     }
     return (
-            <aside className="z-20 flex flex-col h-screen hidden w-64 overflow-y-auto bg-gray-300  border dark:bg-gray-800 md:block flex-shrink-0">
-                <div className="py-4 text-gray-900 dark:text-gray-400">
-                    <Link className="ml-6 text-lg font-bold text-gray-600 dark:text-gray-200" to={'/'}>
-                        React Admin Skeleton
-                    </Link>
+            // <aside className="z-20 flex flex-col h-screen hidden w-64 overflow-y-auto bg-gray-300  border dark:bg-gray-800 md:block flex-shrink-0" aria-label="Sidebar">
+            //     <div className="py-4 text-gray-900 dark:text-gray-400">
+            //         <Link className="ml-6 text-lg font-bold text-gray-600 dark:text-gray-200" to={'/'}>
+            //             React Admin Skeleton
+            //         </Link>
 
-                    <ul className="mt-6">
-                        <li className="relative">
-                            <NavLink className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)} to={'/'}>
-                            <i className="fa fa-home"></i>
-                                <span className="ml-4">Dashboard</span>
-                            </NavLink>
-
-                            
-                        </li>
-
-                            
-                    </ul>
+            //         <ul className="mt-6">
+            //             <li className="relative">
+            //                 <NavLink className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)} to={'/'}>
+            //                 <i className="fa fa-home"></i>
+            //                     <span className="ml-4">Dashboard</span>
+            //                 </NavLink>
+            //             </li>
+            //         </ul>
 
 
-                    <ul>
-                        {/* <li className="relative px-0 py-0 mt-4 bg-gray-500">
-                            <NavLink className="inline-flex bg-red-500 items-center w-full text-sm transition-colors duration-150 hover:text-blue-700 dark:hover:text-gray-200" to={'/users'}>
-                                <i className="fa fa-users"></i> 
-                                <span className="ml-4">Users Management</span>
-                            </NavLink>
-                        </li> */}
+            //         <ul>
+            //             {/* <li className="relative px-0 py-0 mt-4 bg-gray-500">
+            //                 <NavLink className="inline-flex bg-red-500 items-center w-full text-sm transition-colors duration-150 hover:text-blue-700 dark:hover:text-gray-200" to={'/users'}>
+            //                     <i className="fa fa-users"></i> 
+            //                     <span className="ml-4">Users Management</span>
+            //                 </NavLink>
+            //             </li> */}
 
-                        <li className="relative">
-                                <NavLink className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)} to="/users" >
-                                    <i className="fa fa-users"></i> 
-                                    <span className="ml-4">Users Management</span>
-                                </NavLink>
-                            </li>
+            //             <li className="relative">
+            //                     <NavLink className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)} to="/users" >
+            //                         <i className="fa fa-users"></i> 
+            //                         <span className="ml-4">Users Management</span>
+            //                     </NavLink>
+            //                 </li>
 
-                        <li className="relative">
-                            <NavLink to={"/roles"} className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)}>
-                                <i className="fa fa-user-secret"></i>
-                                <span className="ml-4">Roles & Permissions</span>
-                            </NavLink>
-                        </li>
+            //             <li className="relative">
+            //                 <NavLink to={"/roles"} className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)}>
+            //                     <i className="fa fa-user-secret"></i>
+            //                     <span className="ml-4">Roles & Permissions</span>
+            //                 </NavLink>
+            //             </li>
                         
-                        <li className="relative">
-                            <NavLink to={'/products'} className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)}>
-                            <i className="fa fa-list"></i>
-                                <span className="ml-4">Products </span>
-                            </NavLink>
-                        </li>
+            //             <li className="relative">
+            //                 <NavLink to={'/products'} className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)}>
+            //                 <i className="fa fa-list"></i>
+            //                     <span className="ml-4">Products </span>
+            //                 </NavLink>
+            //             </li>
 
-                        <li className="relative">
-                            <NavLink to={"/orders"} className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)}>
-                               <i className="fa fa-shopping-cart"></i>
-                                <span className="ml-4">Orders</span>
-                            </NavLink>
-                        </li>
+            //             <li className="relative">
+            //                 <NavLink to={"/orders"} className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)}>
+            //                    <i className="fa fa-shopping-cart"></i>
+            //                     <span className="ml-4">Orders</span>
+            //                 </NavLink>
+            //             </li>
 
-                        <template x-if="isPagesMenuOpen">
-                            <ul className="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
-                                aria-label="submenu">
-
-                                <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                                    <a className="w-full" href="pages/login.html">Login</a>
-                                </li>
-
-                                <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                                    <a className="w-full" href="pages/create-account.html">
-                                        Create account
-                                    </a>
-                                </li>
-
-                                <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                                    <a className="w-full" href="pages/forgot-password.html">
-                                        Forgot password
-                                    </a>
-                                </li>
-
-
-                                <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                                    <a className="w-full" href="pages/404.html">404</a>
-                                </li>
-
-                                <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                                    <a className="w-full" href="pages/blank.html">Blank</a>
-                                </li>
-
-                            </ul>
-                        </template>
-                    </ul>
+            //             <li>
+            //             <button className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
+            //                    <svg className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path></svg>
+            //                    <span className="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>E-commerce</span>
+            //                   <svg sidebar-toggle-item className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            //                </button>
+            //            <ul id="dropdown-example" className="hidden py-2 space-y-2">
+            //                      <li>
+            //                         <NavLink to={'/products'} className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)}>
+            //                             <i className="fa fa-list"></i>
+            //                             <span className="ml-4">Products </span>
+            //                         </NavLink>
+            //                      </li>
+            //                      <li>
+            //                         <NavLink to={'/products'} className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)}>
+            //                             <i className="fa fa-list"></i>
+            //                             <span className="ml-4">Products </span>
+            //                         </NavLink>                                 </li>
+            //                      <li>
+            //                         <NavLink to={'/products'} className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)}>
+            //                             <i className="fa fa-list"></i>
+            //                             <span className="ml-4">Products </span>
+            //                         </NavLink>                                 
+            //                     </li>
+            //                  </ul>
+            //              </li>
+            //         </ul>
 
                     
 
-                    <div className="px-4 my-6 items-center absolute bottom-96 w-64">
-                        <NavLink to={'/login'} onClick={logout} className="items-center">
-                            <button className=" items-center text-center font-semibold justify-between w-full px-4 py-3 text-sm font-medium  text-white  bg-blue-900  rounded  hover:bg-blue-800">
-                                Logout  <i className="fa fa-sign-out-alt text-white mx-1"></i>
-                            </button>
-                        </NavLink>
-                    </div>
-                </div>
-            </aside>
+            //         <div className="px-4 my-6 items-center absolute bottom-96 w-64">
+            //             <NavLink to={'/login'} onClick={logout} className="items-center">
+            //                 <button className=" items-center text-center font-semibold justify-between w-full px-4 py-3 text-sm font-medium  text-white  bg-blue-900  rounded  hover:bg-blue-800">
+            //                     Logout  <i className="fa fa-sign-out-alt text-white mx-1"></i>
+            //                 </button>
+            //             </NavLink>
+            //         </div>
+            //     </div>
+            // </aside>
+
+            <div className="w-fit bg-gray-50">
+                <Sidebar aria-label="Sidebar with multi-level dropdown example">
+                    <Sidebar.Items>
+                    <Sidebar.ItemGroup>
+                        <Sidebar.Item
+                        href="#"
+                        >
+                        Dashboard
+                        </Sidebar.Item>
+                        <Sidebar.Collapse
+                        label="E-commerce"
+                        >
+                        <Sidebar.Item href="#">
+                            Products
+                        </Sidebar.Item>
+                        </Sidebar.Collapse>
+                        <Sidebar.Item
+                        href="#"
+                        >
+                        Inbox
+                        </Sidebar.Item>
+                        <Sidebar.Item
+                        href="#"
+                        >
+                        Users
+                        </Sidebar.Item>
+                        <Sidebar.Item
+                        href="#"
+                        >
+                        Products
+                        </Sidebar.Item>
+                        <Sidebar.Item
+                        href="#"
+                        >
+                        Sign In
+                        </Sidebar.Item>
+                        <Sidebar.Item
+                        href="#"
+                        >
+                        Sign Up
+                        </Sidebar.Item>
+                    </Sidebar.ItemGroup>
+                    </Sidebar.Items>
+                </Sidebar>
+            </div>
 
 
             // <main className="flex flex-col h-screen">

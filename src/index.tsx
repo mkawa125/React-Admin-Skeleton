@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'flowbite';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import "@fortawesome/react-fontawesome";
 import App from './App';
