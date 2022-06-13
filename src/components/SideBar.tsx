@@ -106,18 +106,27 @@ const SideBar = () => {
             //     </div>
             // </aside>
 
-            <div className="w-fit bg-gray-50">
+            <aside className="z-20 flex flex-col h-screen hidden w-64 overflow-y-auto bg-gray-300  border dark:bg-gray-800 md:block flex-shrink-0" aria-label="Sidebar">
+
+            <div className="py-4 text-gray-900 dark:text-gray-400">
                 <Sidebar aria-label="Sidebar with multi-level dropdown example">
                     <Sidebar.Items>
                     <Sidebar.ItemGroup>
-                        <Sidebar.Item
-                        href="#"
-                        >
-                        Dashboard
-                        </Sidebar.Item>
+                        <Sidebar.Item href="#">
+                     <Link className="ml-6 text-lg font-bold text-gray-600 dark:text-gray-200" to={'/'}>
+                         React Admin Skeleton
+                     </Link>
+                     <ul className="mt-6">
+                         <li className="relative">
+                             <NavLink className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)} to={'/'}>
+                             <i className="fa fa-home"></i>
+                                 <span className="ml-4">Dashboard</span>
+                             </NavLink>
+                         </li>
+                     </ul>
+                       </Sidebar.Item>
                         <Sidebar.Collapse
-                        label="E-commerce"
-                        >
+                        label="E-commerce">
                         <Sidebar.Item href="#">
                             Products
                         </Sidebar.Item>
@@ -125,7 +134,10 @@ const SideBar = () => {
                         <Sidebar.Item
                         href="#"
                         >
-                        Inbox
+                        <NavLink className={({ isActive }) => (isActive ? activeClasses : inActiveClasses)} to="/users" >
+                                    <i className="fa fa-users"></i> 
+                                    <span className="ml-4">Users Management</span>
+                                </NavLink>
                         </Sidebar.Item>
                         <Sidebar.Item
                         href="#"
@@ -151,6 +163,7 @@ const SideBar = () => {
                     </Sidebar.Items>
                 </Sidebar>
             </div>
+            </aside>
 
 
             // <main className="flex flex-col h-screen">
