@@ -21,6 +21,9 @@ import Profile from './modules/users/Profile';
 import AuthenticatedRoutes from './modules/Auth/protectedRoutes';
 import ForgetPassword from './modules/Auth/ForgetPassword';
 import ResetPassword from './modules/Auth/ResetPassword';
+import ProductAttributeSets from './modules/products/product_attribute_sets/ProductAttributeSets';
+import CreateProductAttributeSet from './modules/products/product_attribute_sets/forms/createProductAttributeSet';
+import EditProductAttributeSet from './modules/products/product_attribute_sets/forms/editProductAttributeSet';
 
 function App() {
 
@@ -43,6 +46,10 @@ function App() {
                         <Route path="products" element={<Products/>} />
                         <Route path="products/create" element={<CreateProduct/>} />
                         <Route path="products/:id/edit" element={<EditProduct/>} />
+
+                        <Route path="product-attribute-sets" element={<ProductAttributeSets/>} />
+                        <Route path="product-attribute-sets/create" element={<CreateProductAttributeSet/>} />
+                        <Route path="product-attribute-sets/:id/edit" element={<EditProductAttributeSet/>} />
 
                         <Route path="users/create" element={<CreateUser/>} />
                         <Route path="users/:id/edit" element={<EditUser/>} />

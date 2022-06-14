@@ -10,7 +10,8 @@ const Nav = (props: {user: User}) => {
                 <div className="flex items-center">
                     <div className="flex w-full pt-2 content-center justify-end pr-16">
                         <div className="flex justify-end w-full">
-                            <ul className="flex items-center flex-shrink-0 space-x-10">
+                            <ul className="flex items-center ">
+                                
                                 <li className="transition-colors duration-150 hover:text-blue-700 dark:hover:text-gray-200">
                                     <Link to={'/profile'}>
                                         {props.user.name}
