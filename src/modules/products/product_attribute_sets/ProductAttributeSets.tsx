@@ -24,9 +24,9 @@ const ProductAttributeSets = () => {
         )()
     }, [page]);
 
-    const deleteProduct =async (id:number) => {
-        if (window.confirm("Are you sure you want to delete this product_attribute_set?")) {
-            await axios.delete(`products/product_attribute_sets/${id}`);
+    const deleteProductAttributeSet =async (id:number) => {
+        if (window.confirm("Are you sure you want to delete this product attribute set?")) {
+            await axios.delete(`product-attribute-sets/${id}`);
 
             setProductAttributeSets(product_attribute_sets.filter((product_attribute_set: ProductAttributeSet) => product_attribute_set.id !== id))
         }
@@ -110,16 +110,16 @@ const ProductAttributeSets = () => {
                                     </td> */}
 
                                     <td className="px-4 py-3 text-sm border w-72">
-                                        <Link to={`/product_attribute_sets/${product_attribute_set.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-3 border border-gray-400 rounded">
+                                        <Link to={`/product-attribute-sets/${product_attribute_set.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-3 border border-gray-400 rounded">
                                             <i className="fa fa-eye text-gray-700 text-xs"></i> View
                                         </Link>
 
-                                        <Link to={`/product_attribute_sets/${product_attribute_set.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-3 border border-gray-400 rounded">
+                                        <Link to={`/product-attribute-sets/${product_attribute_set.id}/edit`} className="bg-transparent mx-2 hover:bg-gray-200 text-black hover:text-black py-2 px-3 border border-gray-400 rounded">
                                             <i className="fa fa-edit text-gray-700 text-xs"></i> Edit
                                         </Link>
 
-                                        <a href="#" className="bg-transparent hover:bg-gray-200 text-black hover:text-black py-2 px-3 border border-gray-400 rounded"
-                                            onClick={() => deleteProduct(product_attribute_set.id)}
+                                        <a className="bg-transparent hover:bg-gray-200 text-black hover:text-black py-2 px-3 border border-gray-400 rounded"
+                                            onClick={() => deleteProductAttributeSet(product_attribute_set.id)}
                                             >
                                                <i className="fa fa-trash-alt text-gray-700 text-xs"></i> Delete
                                         </a>
