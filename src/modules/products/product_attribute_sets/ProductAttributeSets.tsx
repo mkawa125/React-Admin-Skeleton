@@ -34,7 +34,7 @@ const ProductAttributeSets = () => {
     return (
         <Wrapper>
             <div className="w-full shadow-md shadow-gray-300">
-            <Link to='/product_attribute_sets/create' className="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-300 rounded shadow">
+            <Link to='/product-attribute-sets/create' className="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-300 rounded shadow">
                 <i className="fa fa-plus"></i> Add New Product
             </Link>
             <div>

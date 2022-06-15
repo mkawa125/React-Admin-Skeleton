@@ -6,25 +6,31 @@ import ImageUpload from "../../../../components/ImageUpload";
 
 const CreateProductAttributeSet  = () => {
 
-    const [name, setName] = useState('');
-    const [description, setDescription] = useState('');
-    const [price, setPrice]= useState('');
-    const [image, setImage] = useState('');
+    const [title, setTitle] = useState('');
+    const [slug, setSlug] = useState('');
+    const [order, setOrder] = useState(0);
+    const [status, setStatus] = useState('');
+    const [display_layout, setDisplayLayout] = useState('');
     const [redirect, setRedirect] = useState(false);
+    const [is_searchable, setIsSearchable] = useState('Yes');
+    const [is_comparable, setIsComparable] = useState('No');
+    const [is_use_in_product_listing, setIsInProductsListing] = useState('Yes');
     
 
     const submit = async (e: SyntheticEvent) => {
         
         e.preventDefault();
 
-        const response = await axios.post("products/create", {
-            name,
-            description,
-            price,
-            image
+        const response = await axios.post("product-attribute-sets/create", {
+            title,
+            slug, status,
+            display_layout,
+            order,
+            is_searchable, is_comparable,
+            is_use_in_product_listing
         });
 
-        window.location.href = '/products';
+        window.location.href = '/product-attribute-sets';
         setRedirect(true);
     }
 
@@ -36,55 +42,85 @@ const CreateProductAttributeSet  = () => {
                 <div className="">
                 <form onSubmit={submit}>
                     <label className="block">
-                        <span className="text-gray-700 dark:text-gray-400">Product Name</span>
+                        <span className="text-gray-700 dark:text-gray-400"> Title </span>
                         <input
                         className="block w-full py-2 px-2 border rounded mt-1 focus:outline-none  form-input"
                         type="text"
-                        defaultValue={name}
-                        onChange={e => setName(e.target.value)}
+                        defaultValue={title}
+                        onChange={e => setTitle(e.target.value)}
                         required
-                        placeholder="Product Name"
+                        placeholder="Attribute Set Title"
                         />
                     </label>
 
                     <label className="block mt-4">
-                        <span className="text-gray-700 dark:text-gray-400">Price</span>
+                        <span className="text-gray-700 dark:text-gray-400">Slug</span>
                         <input
                         className="block w-full py-2 px-2 border rounded mt-1 focus:outline-none  form-input"
-                        type="number"
-                        defaultValue={price}
-                        onChange={e => setPrice(e.target.value)}
+                        type="text"
+                        defaultValue={slug}
+                        onChange={e => setSlug(e.target.value)}
                         required
-                        placeholder="Price"
+                        placeholder="Slug"
                         />
                     </label>
 
-                    <label className="block mt-4">
-                        <span className="text-gray-700 dark:text-gray-400">Image</span>
+                    <label className="block mt-4 ">
+                        <span className="text-gray-700 dark:text-gray-400">Is Attribute Set Searchable?</span>
                     </label>
-                        <input
-                            className="block mb-2 w-full py-2 px-2 border rounded mt-1 focus:outline-none  form-input"
-                            value={image}
-                            onChange={e => setImage(e.target.value)}
-                            required
-                        />
-                        <ImageUpload uploaded={setImage}></ImageUpload>
-                    
+                    <select className="block w-full py-2 px-2 rounded mt-1 focus:outline-none  form-input"
+                        onChange={e => setIsSearchable(e.target.value)}
+                        required>
+                        <option value='1'> Yes</option>
+                        <option value='0'> No</option>
+                    </select>
 
-
-                    <label className="block mt-4">
-                        <span className="text-gray-700 dark:text-gray-400">Description</span>
+                    <label className="block mt-4 ">
+                        <span className="text-gray-700 dark:text-gray-400">Is Attribute Set Comparable?</span>
                     </label>
-                        <textarea
-                            className="block w-full py-2 px-2 border rounded mt-1 focus:outline-none  form-input"
-                            onChange={e => setDescription(e.target.value)}
-                            required
-                            rows={4}
-                            placeholder="Product descriptions"
-                        >
-                        </textarea>
+                    <select className="block w-full py-2 px-2 rounded mt-1 focus:outline-none  form-input"
+                        onChange={e => setIsComparable(e.target.value)}
+                        required>
+                        <option value='1'> Yes</option>
+                        <option value='0'> No</option>
+                    </select>
+
+                    <label className="block mt-4 ">
+                        <span className="text-gray-700 dark:text-gray-400">Is Attribute Set In Product Listing?</span>
+                    </label>
+                    <select className="block w-full py-2 px-2 rounded mt-1 focus:outline-none  form-input"
+                        onChange={e => setIsInProductsListing(e.target.value)}
+                        required>
+                        <option value='1'> Yes</option>
+                        <option value='0'> No</option>
+                    </select>
+
+                    <label className="block mt-4 ">
+                        <span className="text-gray-700 dark:text-gray-400">Display Layout</span>
+                    </label>
+                    <select className="block w-full py-2 px-2 rounded mt-1 focus:outline-none  form-input"
+                        onChange={e => setDisplayLayout(e.target.value)}
+                        required>
+                        <option value='Visual'> Visual</option>
+                        <option value='Image'> Image</option>
+                        <option value='Dynamic'> Dynamic</option>
+                        <option value='3D_Video'> 3D Video</option>
+                        <option value='Test'> Test</option>
+                    </select>
+
+                    <label className="block mt-4 ">
+                        <span className="text-gray-700 dark:text-gray-400">Status</span>
+                    </label>
+                    <select className="block w-full py-2 px-2 rounded mt-1 focus:outline-none  form-input"
+                        onChange={e => setStatus(e.target.value)}
+                        required>
+                        <option value=''>---Select---</option>
+                        <option value='Pending'>Pending</option>
+                        <option value='Published'>Published</option>
+                        <option value='Disabled'>Disabled</option>
+                    </select>
                     
-                        <button className="block w-full px-4 py-2 mt-4 font-bold text-center text-white bg-gray-600 border border-transparent rounded active:bg-purple-600 hover:bg-gray-700 "
+                    <button className="block w-full px-4 py-2 mt-4 font-bold text-center text-white bg-gray-600 border border-transparent rounded active:bg-purple-600 hover:bg-gray-700 "
                         type="submit">
                         Save
                     </button>
