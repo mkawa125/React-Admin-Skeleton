@@ -2,6 +2,7 @@ import axios from "axios";
 import {SyntheticEvent, useState } from "react";
 import Wrapper from "../../../../components/Wrapper";
 import ImageUpload from "../../../../components/ImageUpload";
+import { useNavigate } from "react-router-dom";
 
 
 const CreateProductAttributeSet  = () => {
@@ -9,6 +10,7 @@ const CreateProductAttributeSet  = () => {
     const [title, setTitle] = useState('');
     const [slug, setSlug] = useState('');
     const [order, setOrder] = useState(0);
+    const navigate = useNavigate();
     const [status, setStatus] = useState('');
     const [display_layout, setDisplayLayout] = useState('');
     const [redirect, setRedirect] = useState(false);
@@ -28,10 +30,12 @@ const CreateProductAttributeSet  = () => {
             order,
             is_searchable, is_comparable,
             is_use_in_product_listing
+        }).then(response => {
+            setRedirect(true);
+            navigate("/product-attribute-sets");
+        }).catch(error => {
+            setRedirect(false);
         });
-
-        window.location.href = '/product-attribute-sets';
-        setRedirect(true);
     }
 
     /** This needs to understand and refactor */
