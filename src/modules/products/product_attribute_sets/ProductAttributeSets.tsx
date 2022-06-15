@@ -35,7 +35,7 @@ const ProductAttributeSets = () => {
         <Wrapper>
             <div className="w-full shadow-md shadow-gray-300">
             <Link to='/product-attribute-sets/create' className="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-300 rounded shadow">
-                <i className="fa fa-plus"></i> Add New Product
+                <i className="fa fa-plus"></i> Add New Attribute Set
             </Link>
             <div>
 
@@ -48,11 +48,11 @@ const ProductAttributeSets = () => {
                         <tr className="bg-gray-200 text-xs font-bold tracking-wide text-left text-black uppercase border-b-2 border-b-black dark:border-gray-800 dark:text-gray-800 dark:bg-gray-800">
                             <th className="px-4 py-3 border">#</th>
                             {/* <th className="px-4 py-3 border">IMAGE</th> */}
-                            <th className="px-4 py-3 border">NAME</th>
-                            <th className="px-4 py-3 border">DESCRIPTION</th>
-                            <th className="px-4 py-3 border">PRICE</th>
+                            <th className="px-4 py-3 border">TITLE</th>
+                            <th className="px-4 py-3 border">SLUG</th>
+                            <th className="px-4 py-3 border">DISPLAY LAYOUT</th>
                             <th className="px-4 py-3 border">DATE CREATED</th>
-                            {/* <th className="px-4 py-3 border">LAST UPDATED</th> */}
+                            <th className="px-4 py-3 border">IS SEARCHABLE</th>
                             <th className="px-4 py-3 border">ACTIONS</th>
                         </tr>
                     </thead>
@@ -103,6 +103,10 @@ const ProductAttributeSets = () => {
 
                                     <td className="px-4 py-3 text-sm border">
                                         {product_attribute_set.created_at}
+                                    </td>
+
+                                    <td className="px-4 py-3 text-sm border">
+                                        {product_attribute_set.is_searchable? 'Yes': 'No'}
                                     </td>
 
                                     {/* <td className="px-4 py-3 text-sm border">

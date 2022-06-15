@@ -14,9 +14,9 @@ const CreateProductAttributeSet  = () => {
     const [status, setStatus] = useState('');
     const [display_layout, setDisplayLayout] = useState('');
     const [redirect, setRedirect] = useState(false);
-    const [is_searchable, setIsSearchable] = useState('Yes');
-    const [is_comparable, setIsComparable] = useState('No');
-    const [is_use_in_product_listing, setIsInProductsListing] = useState('Yes');
+    const [is_searchable, setIsSearchable] = useState('');
+    const [is_comparable, setIsComparable] = useState('');
+    const [is_use_in_product_listing, setIsInProductsListing] = useState('');
     
 
     const submit = async (e: SyntheticEvent) => {
